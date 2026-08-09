@@ -1,0 +1,17 @@
+# https://www.lockheedmartin.com (sector: defense, sweep: mode, fetched 2026-08-06)
+status: full-css
+
+## Default patterns observed (5-8 bullets)
+- Hero: a full-width, autoplaying, muted, looping 16:9 MP4 (`q2-earnings-masthead.mp4`) with a bottom overlay reading “Second Quarter Highlights” and “Learn how innovation is transforming defense tech,” followed by a “Learn More” CTA; CSS places the text at the bottom in white over the media and uses 4.375rem light-DIN type for the short title at larger breakpoints.
+- Palette: white `#fff` is the main surface and text-on-dark color; black `#000` is body text, the carousel’s terminal gradient, and the upper footer background; light gray `#f2f2f2` alternates section and lower-footer surfaces; brand/action blue `#0360ae` fills primary CTAs, while `#0260af` marks news types and `#093057` appears as a dark link blue; secondary grays include `#414042`, `#4b4c4d`, `#666`, and `#ccc`.
+- Type: the supplied families are DIN W01 Regular for body copy, DIN 2014 W01 Light for H1/H2 and large display copy, DIN 2014 W01 Demi for uppercase section labels, and DIN 2014 W01 Bold for stronger titles; fallbacks are Calibri, “Helvetica Nue,” Arial, and sans-serif. Body is 16px/1.5rem; desktop hero title is 4.375rem/4.75rem.
+- Layout: content is capped by a 1600px `.container-xxxl`; the page repeats large vertical section bands, alternating white and `#f2f2f2`, with uppercase labels such as “[01] What We Do ___.” It combines a 50/50 statement-plus-carousel block, five domain tiles (Air, Land, Sea, Space, Cyber), a statement-plus-people-image mosaic, a three-item news grid, and four video-short tiles.
+- Imagery: the fetched source verifies a video masthead, mission-system imagery labeled “Investing in America’s Defense,” “Golden Dome,” and “Hypersonics,” domain-specific Air/Land/Sea/Space/Cyber backgrounds, employee/career imagery, news thumbnails, and YouTube thumbnails. Whether any of these are stock photography is unverified.
+- Trust signals: credibility is staged through mission language (“world’s toughest challenges,” “most important missions”), customer-service framing, a claim that Precision Strike Missile production capacity is being quadrupled, dated news/story cards, and an investor-facing stock-price slot in the footer. No accreditation or certification badges were present in the fetched homepage markup.
+- CTAs: primary actions are uppercase blue `#0360ae` rectangles with a 2px matching border, asymmetric padding, bold type, and a white right-arrow asset; hover reverses to white with blue text/arrow. Repeated secondary patterns are underlined “Read More,” “View All,” “Learn More,” “Join Our Team,” and newsletter “Sign Up Now” links.
+- Footer: a substantial two-tier footer first uses a black “Helpful Links” band with four link columns plus a Vector Star newsletter pitch, then a `#f2f2f2` band containing the logo, copyright, privacy/terms/cookies, stock price, and five social-media links.
+
+## Tells (3 one-liners)
+- A cinematic defense-tech hero pairs a quarterly-business headline with oversized white DIN copy and an arrowed blue “Learn More” button.
+- Air / Land / Sea / Space / Cyber appear as five equal photographic capability tiles under an uppercase technical section label ending in “___”.
+- Hardware-mission stories, employee profiles, investor data, and institutional link columns accumulate into a heavy black-and-gray corporate footer.

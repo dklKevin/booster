@@ -1,0 +1,17 @@
+# https://www.amazon.jobs (sector: bigtech, sweep: mode, fetched 2026-08-06)
+status: full-css
+
+## Default patterns observed (5-8 bullets)
+- The opening pattern is a full-width dark-navy job-search band (`#232F3E`) containing separate keyword and location inputs and a square orange search control (`#FF9900`); the active homepage variant uses 44px vertical padding on desktop and collapses the two fields for mobile. It is followed immediately by a wide campaign banner for Annapurna Labs with workplace/hardware photos, a large recruiting line, and an outlined “Find jobs” CTA.
+- The palette is Amazon navy `#232F3E` for search, navigation, and footer; orange `#FF9900` for primary actions and footer headings; white `#FFFFFF` for cards, fields, and reversed text; pale blue-gray `#EAEDF2` and light gray `#F3F3F3`/`#f9f9f9` for alternating section grounds; deep blue `#005276` for the closing culture block; and link blue `#0066C0`/`#1768C9` for job-card titles.
+- Type is the bundled Amazon Ember family, with light 300, regular, italic, and bold 700 files and fallbacks to Helvetica/Arial/sans-serif. Body copy is 16px/1.5; headings inherit the family, while the closing “Impact the future, today” title is 38px/48px normal weight and the centered “Innovate with us” heading is 30px.
+- The layout uses Bootstrap-style fixed containers, rows, and responsive columns: a three-up portal-tile strip, an optional three-card recommendation row, and a three-card “Innovate with us” deck for Teams, Job categories, and Locations. Cards become stacked or horizontal at narrower breakpoints, and pale section bands alternate with white content.
+- Imagery is editorial workplace photography rather than abstract illustration: the fetched campaign shows engineers at monitors, hands working on hardware, and a server-room scene; the opportunity cards show coworkers around laptops, a branded sticker-covered laptop, and employees on an office-campus stairway. The employee story uses a centered, circular-cropped studio portrait.
+- CTAs repeat as rectangular buttons and card-wide links: orange search/primary controls, white-outline tertiary buttons on dark fields, an outlined campaign “Find jobs” button with square corners, and card footers anchored to the bottom. Hover behavior adds subtle `0 0 8px rgba(0,0,0,0.2)` shadows to opportunity and recommendation cards.
+- Trust is staged through a named employee profile with role, organization, location, portrait, and first-person customer-impact story, plus links to Leadership Principles, benefits, hiring help, application status, accommodations, and a formal equal-opportunity statement. No homepage statistics, awards, accreditation seals, or third-party trust badges were present in the fetched source.
+- The footer is heavy and utility-dense: full-width `#232F3E`, social links, official App Store and Google Play badges, three link columns, a locale selector, equal-opportunity copy, privacy/impressum links, and copyright; headings are orange and links are white above a darker legal sub-footer.
+
+## Tells (3 one-liners)
+- A navy job-search band with two white fields and a square Amazon-orange search button instantly frames the homepage as a recruiting utility.
+- Three equal-width photographic cards labeled Teams, Job categories, and Locations turn the organization itself into the default browsing taxonomy.
+- Amazon Ember type, navy/orange controls, a first-person employee profile, and an oversized compliance-heavy footer make employer brand and corporate infrastructure visually inseparable.

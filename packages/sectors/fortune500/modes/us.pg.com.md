@@ -1,0 +1,17 @@
+# https://us.pg.com (sector: fortune500, sweep: mode, fetched 2026-08-06)
+status: full-css
+
+## Default patterns observed (5-8 bullets)
+- Full-viewport, award-led hero: four photographic backgrounds rotate on a 10-second loop with circular clip-path reveals and slow scale-up; a Fortune “America's Most Innovative Companies 2026” badge, the claim “Named #1 Most Innovative in Household Products for Third Consecutive Year,” and a “Read More” CTA sit centered in white over the imagery. The hero uses `#003da5`, a dark `rgba(4,25,61,.8)` image gradient, and a yellow `#fedb00` terminal period.
+- Palette is corporate blue first: `#003da5` is used for the hero, footer, headings, active news card, arrows, and interactive accents; `#fff` supplies page/card grounds and reversed text; `#000` is the root text color; `#f2f7ff` is the pale-blue news-section background; `#fedb00` is the headline punctuation accent; darker blues `#012169` and `#002c7a` appear on controls and button hover states.
+- Type is Montserrat throughout the layout (`font-family:var(--font-montserrat),sans-serif`), with supplied Montserrat webfonts in weights including 200 and 300. Homepage display headings use bold 700 at up to 5rem, while all-caps section labels use 800 and buttons use 600.
+- Layout cycles through familiar modular bands: a fixed 66px header, full-screen animated hero, four-story news carousel/grid, 56-item brand carousel, a sustainability feature, and a two-up Careers/Investor Relations promotional row. News cards are white/blue with shadows and exaggerated arched tops (`border-radius:50vw 50vw 50px 50px`); the brand rail has previous/next arrows and numbered slides.
+- Imagery is polished corporate lifestyle and product storytelling: rotating employee/people photography in the hero; square product/news thumbnails (supplements and a man shaving); a wellbeing-at-work portrait; aerial green river landscape plus a child in woods for sustainability; and separate photographic backdrops for Careers and Investor Relations. Circular crops, large rounded masks, dark gradients, and branded SVG icons unify unlike subject matter.
+- CTAs repeat as outlined pill buttons (`border-radius:44px`, minimum height 46px) with animated fill on hover; labels are generic destinations such as “Read More,” “See all our latest stories,” “See our iconic brands,” “See our efforts,” “Explore opportunities,” and “Get investor information.”
+- Trust is staged up front and at the edges: the Fortune 2026 badge and “#1” innovation claim dominate the hero; a fiscal-year-results story and dedicated Investor Relations tile supply corporate proof; the footer source includes an 82×43 P&G BBB seal linked to the Better Business Bureau.
+- Footer markup is institutionally dense—Connect, Partners & Investors, Our Company, Help, Legal, location, five social channels, privacy controls, copyright, and BBB seal—but the homepage applies `footer--minified`: on desktop it becomes a fixed blue strip and hides legal, location, and social blocks; the same class is hidden below 992px.
+
+## Tells (3 one-liners)
+- A Fortune award badge and superlative “#1” claim centered over a full-screen rotating employee-photo hero.
+- P&G blue `#003da5` everywhere, punctuated by tiny yellow `#fedb00` periods after oversized rounded-sans headlines.
+- Carousels for both corporate stories and dozens of brand logos, followed by paired Careers and Investor Relations image tiles.

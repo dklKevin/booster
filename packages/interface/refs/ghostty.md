@@ -1,0 +1,12 @@
+# ghostty (ghostty.org, extracted 2026-08-07)
+status: full-css
+
+- Neutrals: Dark-only UI ramp: #0f0f11 ground, #16161a inset/code, #242428 hover/divider, #4c4c50 border, #828286 muted, #959597 secondary text, #c3c3c4 body emphasis, #dbdbdc/#eaeaeb steps, #f0f0f4 headings; hover generally moves gray-5 to gray-9 and gray-2 to gray-3. Print alone remaps to #ededf1 through #08080d.
+- Accents: #3551f3 is the sole brand signal for the primary CTA, active nav, selection, and ASCII highlight; terminal chrome uses #ff605c close, #ffbd44 minimize, #00ca4e zoom. Docs semantics use #61aeee note, #98c379 tip, #e6c07b warning, #c678dd important, #e06c75 caution, #d19a66 numbers, #56b6c2 literals, #5c6370 comments, #abb2bf code text.
+- Type: Pretendard Std Variable drives UI; 16px/1.4 default and 16px/1.6 reading text, weights 300-600; headings share 1.2 line-height with h1 35px (30px <=768), h2 25px (22px), h3 18px (16px). JetBrains Mono 400 drives code at 15px inline and the responsive terminal at 6px/9px, 10px/13.8px, or 12px/16.6px.
+- Space: No named base unit; repeated 4px multiples dominate. General grid is max 1300px with 48px desktop/24px mobile inset (nav/footer max 1700px, 40px/28px); docs use 320px sidebar + 800px article + 235px sidecar with 24px gutters. Home stacks at 20px gaps inside 32px vertical padding; radii are 4px inline code, 5-6px controls, 10px terminal/cards, 16px feature card.
+- Motion: The 235-frame ASCII loop advances every 31ms in JS (paused on blur/hidden and skipped for reduced motion); CSS uses .15s background/button transitions, .1s ease-in-out icon/hamburger motion, .2s transform/opacity, .25s copy-button fades, and 1.5s ease-in-out anchor-target highlights.
+- Structure: Homepage is a single 100dvh centered stack - animated terminal, one-sentence tagline, two buttons - while interiors add a sticky 72px navbar and docs shell with sticky 320px tree, max-800px article, and sticky 235px outline; sidecar drops at 1276px and sidebar at 784px.
+- Signature: A 100-column x 41-row, platform-skinned terminal window titled "👻 Ghostty" plays a source-shipped ASCII ghost animation, with blue-highlighted glyphs and responsive mono sizing; this is the logo, hero image, and product demo at once.
+
+Avoid: Copying the terminal chrome or ASCII loop without a terminal-native subject becomes costume immediately. The sparse full-viewport composition works because one literal product artifact carries nearly all identity; adding generic feature furniture would dilute it.

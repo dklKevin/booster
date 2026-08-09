@@ -1,0 +1,12 @@
+# magnum (magnumphotos.com, extracted 2026-08-07)
+status: full-css
+
+- Neutrals: #fff is the page and hero-caption ground; #000 is primary text, image mat, and footer; body copy resolves to #302d2d, with #898989 photographer lines, #b9b9b9 metadata, and #ebebeb hairlines/soft borders. Image hover sits on #000 and lowers the image to .7 opacity.
+- Accents: #27b4b2 marks Newsroom, #008cca Arts & Culture, #5873cd Theory & Practice, and #006e7d photographer links/ranks; each propagates through category text, underlines, arrows, SVG strokes, and button hover fills rather than tinting the canvas.
+- Type: body/rich text is `garamond-premier-pro-display, serif` at 20px/28px, .025em; story H1 is `fira-sans, sans-serif` 40px/48px (26px/48px under 479px), hero titles 30px/40px, labels 15px/18px, category labels 14px/18px with .1em tracking; Univers/Helvetica/Arial supplies 300/400/700-weight navigation and chrome.
+- Space: no explicit base unit; recurring 20/25/30/40/50/60px steps. Outer/inner widths are 1280/1200px (inner becomes 93.75%), reading column 640px, story header 780px, tight images 720px; article images end with 50px gaps. Content corners are 0; only photographer portraits are 50% circles. Primary breakpoints: 1280, 1023, 767, 479px.
+- Motion: global teaser/image/chrome transitions are `all .4s ease`; hero images use `all 1s ease` with .8s delay; hero captions combine opacity `.4s ease` with transform `1.2s cubic-bezier(.165,.84,.44,1)` after 1s, and the under-hero rail repeats that 1.2s/1s curve.
+- Structure: the homepage alternates 1200px-wide photographic heroes with horizontal four-item Swiper rails; stories move from a centered 780px title stack to a 1200px lead image, 640px prose, and paired 43.75%-wide masonry images; the photographer index is an alphabetized 119px-item masonry field.
+- Signature: each homepage feature is a full-width photograph immediately followed by a centered white caption slab that begins 30px above its resting point, then a shallow four-image story rail; the repeated image-slab-rail cadence, with category color confined to taxonomy text and controls, makes the archive recognizable.
+
+Avoid: Do not turn the section colors into large backgrounds or generic card chrome; their restraint depends on museum-white space and strong photography. Copying the huge-image cadence without varied editorial crops, precise captions, and narrow reading measures becomes an undifferentiated feed.
