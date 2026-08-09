@@ -19,8 +19,10 @@ status: full-css
 - Pair an ownable display face only with high-value headlines and product names; keep dense shopping controls in a compact DINPro/Inter grotesk so the brand feels athletic without sacrificing scan speed.
 - Let imagery carry the category energy: full-bleed motion at entry, tall athlete cards for goal navigation, and square pack shots on quiet #F4F4F4 cards create distinct editorial and transactional modes.
 - Keep the shell fluid instead of imposing a narrow desktop frame: responsive gutters plus 50/50 split sections preserve product scale and make the catalogue feel expansive.
-- Repeat a small set of physical cues—10px cards, pill controls, large 25–50px campaign panels, translucent overlays—to connect product UI with campaign storytelling.
+- Repeat a small set of physical cues - 10px cards, pill controls, large 25–50px campaign panels, translucent overlays - to connect product UI with campaign storytelling.
 
 ## Avoid (1-2 bullets)
 - Do not copy the many radius sizes and zero-gap product grid without the same image discipline; inconsistent crops would turn the deliberate density into a crowded, overly soft interface.
 - Do not overuse Airborne or the glass treatment: the source limits them to selected titles and overlay moments, while long copy and commerce controls stay restrained.
+
+Note: this site uses techniques our ban list forbids (frosted glass / blur chrome). Documented for range; learn the thinking, never the banned material.

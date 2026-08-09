@@ -9,10 +9,10 @@ status: full-css
 - Type pairing: `CircularXX` is the primary family for headings and body; `Dutch801 Rm BT`, serif is the secondary family used for blockquotes/editorial contrast.
 - Display scale: h1 `clamp(40px, 4.58333vw, 66px)`/1.1 with `-0.02em`; h2 `clamp(40px, 3.33333vw, 48px)`/1.2; h3 `clamp(32px, 2.77778vw, 40px)`/1.25; all use CircularXX weight 450.
 - Supporting scale: h4 `24–32px`/1.25, h5 `20–24px`/1.5, h6 `12–16px`/1.5 uppercase with `0.08em`; body `16–18px`/1.5; caption `12px`/1.5.
-- Spacing rhythm: a 4px base token plus fluid named steps—xs `8–16px`, sm `16–24px`, md `24–32px`, lg `32–48px`, xl `48–64px`—reused for gaps, margins, and padding.
+- Spacing rhythm: a 4px base token plus fluid named steps - xs `8–16px`, sm `16–24px`, md `24–32px`, lg `32–48px`, xl `48–64px` - reused for gaps, margins, and padding.
 - Layout intent: centered responsive containers at `640/768/1024/1280/1536px`, `15–20px` inline gutters, and 12-column grids at tablet/desktop breakpoints support alternating editorial, commerce, and proof modules.
 - Controls: primary buttons are 45px high with `12px 24px` padding and a 25px radius; the default indigo fill flips to yellow on hover.
-- Signature element: electric-yellow highlighter language—animated underline bars, yellow hover fills, and emphasized review text with `0 0 14px 3px #FFE666E6` glow—threads the same accent through navigation, proof, and commerce.
+- Signature element: electric-yellow highlighter language - animated underline bars, yellow hover fills, and emphasized review text with `0 0 14px 3px #FFE666E6` glow - threads the same accent through navigation, proof, and commerce.
 
 ## Lessons (3-5 bullets)
 - Assign one high-energy accent to both storytelling and interaction: Ritual's `#FFD600` marks claims and reviews, but also makes button and navigation states feel native to the brand.

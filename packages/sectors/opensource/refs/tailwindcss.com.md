@@ -11,7 +11,7 @@ status: full-css
 - Spacing is a 4px base (`--spacing: .25rem`), heavily composing 8, 16, 24, 32, and 40px gaps/padding; major section separation commonly uses 64px and 96px.
 - The fixed header is 56px tall with 16px horizontal padding, rising to 24px at the small breakpoint; content begins at 57px (`pt-14.25`).
 - Layout intent: a centered responsive grid caps the homepage at the 96rem/1536px `2xl` breakpoint with 40px gutters; docs switch at 64rem to a 288px sidebar + 40px gutter + fluid article, whose inner widths cap at 42rem/672px and 64rem/1024px.
-- Signature element: content is visibly placed on a drafting grid—full-bleed 1px rules, dashed sky selection boxes/handles, and tiny monospace utility-class labels make the framework's own primitives the visual language.
+- Signature element: content is visibly placed on a drafting grid - full-bleed 1px rules, dashed sky selection boxes/handles, and tiny monospace utility-class labels make the framework's own primitives the visual language.
 
 ## Lessons (3-5 bullets)
 - Turn the product's core abstraction into the interface ornament: Tailwind labels spacing and typography with real utility names, so decoration simultaneously teaches the API.

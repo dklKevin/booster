@@ -11,7 +11,7 @@ status: full-css
 - Spacing rhythm: recurring 10/15/20/30px increments; editorial paragraphs use 20px bottom margin, cards use 15px 14px 5px padding, and major sections move from 20px 0 30px to 60px 0 30px 30px at 768px+.
 - Layout width: Bootstrap-derived containers are 740/960/1030px at 768/992/1200px, but the current stylesheet overrides `.container` at 769px+ to `width:100%` with 150px horizontal padding.
 - Layout intent: a 12-column responsive grid supports full-bleed homepage experiences; the article interior uses an 8-column reading area paired with a 4-column author/sidebar rail.
-- Signature element: stacked full-width Ceros experiences form an interactive cinematic hero and alternating story bands—source aspect ratios 2.80898876, 4.19463087, and 8.38926174—with `margin-bottom:-45px` joining the bands tightly.
+- Signature element: stacked full-width Ceros experiences form an interactive cinematic hero and alternating story bands - source aspect ratios 2.80898876, 4.19463087, and 8.38926174 - with `margin-bottom:-45px` joining the bands tightly.
 
 ## Lessons (3-5 bullets)
 - Let one disciplined sans family span navigation, headlines, metadata, and long-form copy; hierarchy comes from a broad 300–800 weight range and a compact, explicitly stepped scale rather than decorative type pairing.

@@ -18,7 +18,7 @@ status: full-css
 - Separate expressive marketing typography from utilitarian reading typography: APK Protocol gives the homepage identity, while Inter and a narrow 688px documentation measure protect long-form legibility.
 - Reuse the same 1px ruled wrapper and 4px-derived spacing system across hero, proof logos, feature grids, community metrics, sponsors, and footer so varied content still reads as one system.
 - Treat dark and light modes as role remaps, not inversions: dark mode deliberately moves backgrounds through `#16171d`, `#0c0912`, and `#14121a` while retaining `#867e8e` secondary text and switching dividers to `#3b3440`.
-- Make technical capability tangible with one interactive artifact—the canvas animation—then keep supporting illustrations, terminals, and framework logos inside restrained grid cells.
+- Make technical capability tangible with one interactive artifact - the canvas animation - then keep supporting illustrations, terminals, and framework logos inside restrained grid cells.
 
 ## Avoid (1-2 bullets)
 - Do not copy the 60px display face or 641×629 canvas without the extracted 48rem breakpoints; the source drops h1 to 36px and collapses the grid for smaller screens.

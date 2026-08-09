@@ -17,7 +17,7 @@ status: full-css
 - Make enterprise-security pages feel approachable without losing hierarchy: reserve #0254EC for decisive actions and links, then use #FFC6F8 as a small interaction accent rather than a large decorative field.
 - Pair compact Poppins semibold headings with DM Sans body copy; the homepage’s 52px/66px desktop hero is prominent but leaves room for product UI and proof content.
 - Build long pages from one 4px spacing token and a stable 1088px content canvas; vary composition with 1/2/3-column grids instead of changing the alignment system section by section.
-- Give conversion controls a recognizable physical response—the repeated 5px hover lift and colored offset shadow makes CTAs distinctive while preserving simple pill geometry.
+- Give conversion controls a recognizable physical response - the repeated 5px hover lift and colored offset shadow makes CTAs distinctive while preserving simple pill geometry.
 - Keep readable narrative content narrower than the main canvas: the source repeatedly uses a 98ch center track inside full-bleed sections and `max-w-prose` for centered introductions.
 
 ## Avoid (1-2 bullets)

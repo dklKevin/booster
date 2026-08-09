@@ -7,7 +7,7 @@ status: wayback
 - Type: custom Neue Plak families are preloaded. Headings use `NeuePlakforUnited-SmBd` with Noto Sans/Arial fallbacks (desktop h1 `2.5rem`, h2 `2rem`), while interface/body styles use `NeuePlakTextforUnited-Rg` and `NeuePlakTextforUnited-SmBd`.
 - CTA pattern: pill buttons use a `30px` radius and generous `.75rem 2.5rem` padding; primary actions are white-on-`#1414d2`, darkening to `#0d0d8f`, while text actions are underlined `#1414d2`. “Find flights” is the booking form’s explicit primary action.
 - Layout clichés: the verified structure is a dense multi-field flight-search module plus accordion/flex-based navigation and footer link groups. Homepage card grids, promotional carousels, and their section order are unverified from the archived app shell.
-- Imagery style: the fetched homepage-takeover JPEG is warm, aspirational travel photography—a child with luggage on an airport escalator—composed with broad empty space and a centered translucent play mark, indicating video-poster treatment. Other homepage imagery is unverified.
+- Imagery style: the fetched homepage-takeover JPEG is warm, aspirational travel photography - a child with luggage on an airport escalator - composed with broad empty space and a centered translucent play mark, indicating video-poster treatment. Other homepage imagery is unverified.
 - Trust and footer staging: the source explicitly pairs the United logo with “United is a proud member of Star Alliance.” The footer is heavy and layered: a light-gray `#ebebe9` top section, link-group navigation, social/stay-connected content, disclaimer logos, then a black flex-wrapped bottom section.
 
 ## Tells (3 one-liners)

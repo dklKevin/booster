@@ -11,7 +11,7 @@ status: full-css
 - Spacing rhythm: component gaps center on `8px`, `16px`, `24px`, and `32px`; section Y presets are `16/32/40/56px` mobile and `24/56/72/96px` from 800px.
 - Gutters and radii: page gutter `24px`, increasing to `60px` from 75em; common radii `8px`, `10px`, and `20px`, with pill buttons at `26px`, `32px`, or `90px`.
 - Layout intent: fluid 12-column utilities from 48rem inside named containers (`600`, `800`, `1000`, `1100→1340`, and `1440px` maxima), with single-column mobile sections and 24px default item gaps.
-- Signature element: opposing-direction marquee rows of outlined, rounded labels—`32px/33.6px`, `8px 24px` padding, `16px` gaps—moving for `120s` on desktop and `70s` on mobile.
+- Signature element: opposing-direction marquee rows of outlined, rounded labels - `32px/33.6px`, `8px 24px` padding, `16px` gaps - moving for `120s` on desktop and `70s` on mobile.
 
 ## Lessons (3-5 bullets)
 - Pair a warm, low-contrast clinical canvas (`#fcf4e9`) with near-black text and a tightly rationed poppy CTA; healthcare can feel welcoming without sacrificing action hierarchy.

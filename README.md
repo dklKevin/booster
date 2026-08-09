@@ -85,14 +85,20 @@ The full list, with all 18 entries and their logs, lives in [DESIGN.md](DESIGN.m
 - Bans enter from the observed-failure loop above.
 - Positive prescriptions are avoided on principle. Bans carve out negative space and leave the rest free; prescriptions become the next template. When the system itself started prescribing (a palette hint in a sector pack, a shot count in a brief), every build converged, and the prescriptions were removed.
 
-## Sync
-
-Canonical copies live in `~/.claude/` where agents read them.
-This repo is the versioned mirror:
+## Install
 
 ```sh
-./sync.sh   # pull the live system into the repo
+git clone https://github.com/dklKevin/booster && cd booster
+./install.sh
 ```
+
+This copies the system into `~/.claude/`, where agents read it, and refuses to touch a `DESIGN.md` it does not recognize.
+Then wire it in: one line in your `~/.claude/CLAUDE.md` telling agents to read `~/.claude/DESIGN.md` before designing any UI or page.
+
+## Sync (maintainer direction)
+
+`./sync.sh` pulls the live `~/.claude/` state back into the repo before committing.
+It refuses to run against a machine without a full Booster install, so a fresh clone cannot overwrite itself.
 
 <p align="center">
   <sub>Grown one observed failure at a time.</sub>

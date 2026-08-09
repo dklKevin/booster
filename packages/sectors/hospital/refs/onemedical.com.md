@@ -14,7 +14,7 @@ status: full-css
 - Signature element: the centered GT Super Display “Get care today for …” headline cycles condition names in sage `#068466` with `0.6s` slide-in/slide-out animation; homepage callouts extend the identity with jade-to-avocado or jade-to-melon gradients.
 
 ## Lessons (3-5 bullets)
-- Make the care taxonomy feel human and broad by rotating concrete needs—such as anxiety, vaccinations, menopause, and “that weird rash”—inside one stable, oversized promise instead of presenting a dense services directory first.
+- Make the care taxonomy feel human and broad by rotating concrete needs - such as anxiety, vaccinations, menopause, and “that weird rash” - inside one stable, oversized promise instead of presenting a dense services directory first.
 - Pair a warm editorial serif at `72–88px` with a highly readable `16–18px` sans-serif body; the contrast makes healthcare feel personal without weakening practical UI clarity.
 - Use deep green as both text and large-field color, then reserve avocado and melon for approachable emphasis; this creates warmth without relying on generic hospital blue.
 - Let a fluid column unit control both widths and gutters, while constraining forms and long text to `720–875px`; the system supports expressive full-bleed sections and readable interior pages with the same primitives.

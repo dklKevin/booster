@@ -18,7 +18,7 @@ status: full-css
 - Keep a stable 12-column desktop grid while changing outer margins and type at explicit breakpoints; this preserves alignment as the page becomes more editorial at larger sizes.
 - Use a broad but discrete spacing ladder, then expose section padding as one responsive token so long startup pages maintain a consistent vertical cadence.
 - Reserve saturated brand colors for the logo and small icon systems while the main interface remains predominantly #FFFFFF/#000000; the product imagery supplies most of the visual variety.
-- Reuse the same structural rhythm across product pages—short headline and support copy followed by demonstrative media—while changing the content rather than inventing a new page system.
+- Reuse the same structural rhythm across product pages - short headline and support copy followed by demonstrative media - while changing the content rather than inventing a new page system.
 
 ## Avoid (1-2 bullets)
 - Do not copy the 4.5-6.5rem display scale without the extracted condensed width setting and tight letter-spacing; the same sizes in a wider font will wrap much earlier.

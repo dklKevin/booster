@@ -12,5 +12,5 @@ status: full-css
 
 ## Tells (3 one-liners)
 - An enormous, light-weight partnership claim occupies most of the first viewport while portfolio news cards act as the proof.
-- Muted institutional pastels—pale blue, dusty red, and sage green—categorize editorial content without changing the restrained black/gray shell.
+- Muted institutional pastels - pale blue, dusty red, and sage green - categorize editorial content without changing the restrained black/gray shell.
 - Prestige is communicated by famous portfolio names and IPO/investment headlines, with a minimal nav and no visible badge wall.

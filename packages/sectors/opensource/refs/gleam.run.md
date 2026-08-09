@@ -15,7 +15,7 @@ status: full-css
 
 ## Lessons (3-5 bullets)
 - Make the open-source project feel approachable without weakening technical credibility: warm mascot and rounded 100px CTAs sit beside real, color-coded code samples in every feature row.
-- Reuse one narrow 960px rail across marketing, documentation, and news; structural consistency lets content type—not a new shell—signal the page mode.
+- Reuse one narrow 960px rail across marketing, documentation, and news; structural consistency lets content type - not a new shell - signal the page mode.
 - Turn the brand palette into navigation: pale yellow identifies the global header, dark blue holds technical content, pink marks community/sponsorship moments, and near-white closes the page.
 - Use alternating text/code pairs to translate each product claim directly into evidence, with both columns sharing the rail equally and wrapping from a 250px minimum.
 - Keep delight small and repeatable: the mascot’s 200ms hover swap/rotation and the shared wave divider add personality without interrupting reading.

@@ -9,3 +9,5 @@
 - Signature: radial mask punching the image field to zero exactly where the headline lands; type on untouched paper at full contrast while photography fills every edge.
 
 Avoid: the whole landing renders via JS from opacity 0 (no-JS sees nothing); don't inherit that trade without a fallback.
+
+Note: this site uses techniques our ban list forbids (frosted glass / blur chrome). Documented for range; learn the thinking, never the banned material.

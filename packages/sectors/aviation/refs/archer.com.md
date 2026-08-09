@@ -17,7 +17,7 @@ status: full-css
 ## Lessons (3-5 bullets)
 - Treat the aircraft as the primary interface: reserve the full viewport for motion, then keep the message to one compact, highly tracked display lockup.
 - Separate brand voice by function: expanded Ligione for aspiration, narrow Archivo for readable explanation, and Chakra Petch for cockpit-like labels and data.
-- Make technical precision a repeatable motif through fine rules, dense tick marks, tabular numerals, restrained uppercase labels, and measured tracking—not decorative “futurism.”
+- Make technical precision a repeatable motif through fine rules, dense tick marks, tabular numerals, restrained uppercase labels, and measured tracking - not decorative “futurism.”
 - Keep long product narratives legible by pairing a 700px heading column with a 460px copy column, then returning to full-bleed demonstrations and scrub/route interactions.
 - Use a strict monochrome foundation so route-specific photography, video, maps, and restrained steel/sky accents carry the product story without fragmenting the system.
 

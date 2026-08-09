@@ -11,14 +11,14 @@ status: full-css
 - Spacing rhythm: recurring extracted increments are 8, 12, 16, 24, 32, 40, 48, 64, 80, 120, and 160px; tight component gaps are 8-16px, while section separation commonly reaches 64-160px.
 - Layout system: centered 12-column percentage logic; the main container is 10/12 (83.333333%) wide, 11/12 below 576px, capped at 1280px and then 1464px on viewports at least 1536px wide.
 - Layout intent: generous single-column narrative headers lead into bordered two-column evidence/product modules; benchmark browsers use `minmax(280px, .8fr) 1.2fr` and collapse to one column below 1024px.
-- Signature element: an interactive benchmark-paper browser—scrolling list at left, abstract/detail pane at right—with 0.5px borders, 8px radius, Yves-blue active rails, and a paired AI-agent prompt field above it.
+- Signature element: an interactive benchmark-paper browser - scrolling list at left, abstract/detail pane at right - with 0.5px borders, 8px radius, Yves-blue active rails, and a paired AI-agent prompt field above it.
 
 ## Lessons (3-5 bullets)
 - Make scientific evidence part of the primary interface: the paper browser exposes year, benchmark name, authors, venue, abstract, and paper link in a scan/detail pattern instead of hiding credibility in a generic resources page.
 - Use one restrained technical accent consistently: `#001aae` carries headlines, selected states, links, thin borders, and gradients while white and navy surfaces preserve clinical clarity.
 - Let dense scientific content breathe through hierarchy rather than decoration: 12px uppercase eyebrows, 30-64px titles, 14-18px explanatory copy, and 64-160px section spacing separate claim, evidence, and action.
 - Reuse the same responsive content frame across marketing and technical pages: 83.333333% width with 1280/1464px caps supports both prose-led `/product` sections and denser two-column `/security` modules.
-- Translate platform complexity into bounded interface-like artifacts—paper browsers, prompt inputs, diagrams, and product wells—so capabilities feel operable and verifiable rather than merely asserted.
+- Translate platform complexity into bounded interface-like artifacts - paper browsers, prompt inputs, diagrams, and product wells - so capabilities feel operable and verifiable rather than merely asserted.
 
 ## Avoid (1-2 bullets)
 - Do not copy the many large gaps mechanically: 120-200px section padding and a 100vh hero can make a thinner content set feel sparse or slow.

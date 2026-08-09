@@ -10,3 +10,5 @@ status: wayback
 - Signature: A scroll-scrubbed 3840×1440 banking film is pinned for the hero, clipped by intersecting vertical/horizontal feather masks, overlaid with grain and fixed conversion copy, then mechanically continues as four labeled product-flow videos.
 
 Avoid: Copying only the near-black field, blue-purple pill, and frosted email form collapses this into generic premium fintech. The identity depends on authored panoramic footage, the long scroll choreography, explicit product-flow labels, and the persistent compliance layer working together.
+
+Note: this site uses techniques our ban list forbids (frosted glass / blur chrome). Documented for range; learn the thinking, never the banned material.

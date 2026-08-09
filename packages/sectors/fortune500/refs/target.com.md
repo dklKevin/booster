@@ -2,10 +2,10 @@
 status: full-css
 
 ## Token block (~10 lines)
-- Palette—brand/page: Target red `#cc0000` (brand background, text, border, icon), white `#ffffff` (page/base background).
-- Palette—text: `#333333` base, `#666666` subdued/placeholder/disabled, `#f7f7f7` inverse.
-- Palette—surfaces/borders: `#f7f7f7` subdued surface, `#e8e8e8` hover/inactive, `#d6d6d6` active/disabled/subdued border, `#888888` base border.
-- Palette—brand states: `#aa0000` hover and `#840000` active; subdued brand surface `#fee9e7`.
+- Palette - brand/page: Target red `#cc0000` (brand background, text, border, icon), white `#ffffff` (page/base background).
+- Palette - text: `#333333` base, `#666666` subdued/placeholder/disabled, `#f7f7f7` inverse.
+- Palette - surfaces/borders: `#f7f7f7` subdued surface, `#e8e8e8` hover/inactive, `#d6d6d6` active/disabled/subdued border, `#888888` base border.
+- Palette - brand states: `#aa0000` hover and `#840000` active; subdued brand surface `#fee9e7`.
 - Type family: `"Helvetica for Target", HelveticaForTarget, Targetica, "HelveticaNeue for Target", "Helvetica Neue", Helvetica, Arial, sans-serif`; supplied weights 200, 400, 700, 900.
 - Type scale: 13, 14, 16, 18, 20, 22, 24, 28, 30, 32, 36, 46, 56, 68px; body line-height 1.4, headline 1.3, display 1.
 - Type roles: captions 13px; body 14/16/18px; headlines 18/20/22/24/28px, all headline roles at weight 700.

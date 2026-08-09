@@ -17,7 +17,7 @@ status: full-css
 - Replace institutional blue with a tightly role-assigned botanical palette: ivory for calm space, forest for authority, fern for primary care actions, and ochre for the higher-emphasis conversion path.
 - Pair a light editorial serif for empathetic, outcome-led claims with a highly legible geometric sans for clinical details and controls; the `48–64px` hero stays expressive while `17–20px/160%` supporting copy remains easy to scan.
 - Use generous, repeatable section pacing (`64/80/120px`) and a wide `1480px` shell, then constrain copy and imagery inside two-column modules so dense medical proof never feels cramped.
-- Put concrete trust signals into the visual rhythm—insurance acceptance, board-certified clinicians, advanced testing, telehealth, outcomes, and testimonials—rather than isolating credibility in one generic badge strip.
+- Put concrete trust signals into the visual rhythm - insurance acceptance, board-certified clinicians, advanced testing, telehealth, outcomes, and testimonials - rather than isolating credibility in one generic badge strip.
 - Keep conversion choices visibly distinct but equal in shape: consistent rounded pills make “care” and “labs” feel like one system while ochre and fern clarify separate paths.
 
 ## Avoid (1-2 bullets)
