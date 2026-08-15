@@ -49,7 +49,7 @@ Reference material lives in `~/.claude/design/packages/`, one package per situat
 - `packages/gallery`: imagery-first pages where the interface recedes.
 - `packages/showcase`: physical-object pages; cars, hardware, anything that must be desired.
 
-A second axis lives in `packages/sectors/` (hospital, coding, vc, startup, fortune500, pharma, law, bigtech, defense, cybersecurity, biosecurity, supplements, aviation, opensource, retail, growing).
+A second axis lives in `packages/sectors/` (16 sectors: aviation, bigtech, biosecurity, coding, cybersecurity, defense, fortune500, hair-salon, hospital, law, opensource, pharma, retail, startup, supplements, and vc; growing).
 Form packages say how a page is built; sector packages say what credibility and register mean in that industry, including the sector's own mode to avoid.
 
 Loading rule: read the matching form package's `PACK.md`, the sector package's `PACK.md` when the brief belongs to an industry, plus 2-3 refs total chosen for the brief.

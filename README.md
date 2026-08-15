@@ -13,8 +13,8 @@
 
 <p align="center">
   <img alt="form packs" src="https://img.shields.io/badge/form_packs-6-17131f">
-  <img alt="sector packs" src="https://img.shields.io/badge/sector_packs-15-17131f">
-  <img alt="distilled refs" src="https://img.shields.io/badge/distilled_refs-140%2B-495e69">
+  <img alt="sector packs" src="https://img.shields.io/badge/sector_packs-16-17131f">
+  <img alt="distilled refs" src="https://img.shields.io/badge/distilled_refs-164-495e69">
   <img alt="bans" src="https://img.shields.io/badge/bans_from_observed_failures-18-8a2f40">
 </p>
 
