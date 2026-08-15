@@ -20,7 +20,7 @@ Refs teach how to think, never what to build.
 
 - An empty salon interior, walkthrough film, or stock-style model campaign appears before recognizable client results.
 - A generic quality promise and Book Now control arrive before service detail, stylist evidence, or a clear consultation path.
-- Specialized perm or straightening vocabulary sits in image cards without price status, duration, explanation, or stylist matching.
+- Specialized perm or straightening vocabulary appears in model-image cards while price status, consultation guidance, and stylist matching remain unresolved.
 - An Instagram embed carries most of the result proof while the owned page moves directly to hours, map, phone, and another booking action.
 
 ## Register
