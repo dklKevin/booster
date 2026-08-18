@@ -15,7 +15,7 @@ status: wayback
 
 ## Lessons (3-5 bullets)
 - Use the warm #DED6CB/#474749 editorial base for institutional material, then let near-black or deep-navy full-viewport product chapters create operational intensity without turning the entire brand into a dark UI.
-- Treat orange #F36702 as a scarce state/signal color—active navigation, focus, selection, and compact CTAs—not as broad decoration; this preserves its command-like clarity.
+- Treat orange #F36702 as a scarce state/signal color - active navigation, focus, selection, and compact CTAs - not as broad decoration; this preserves its command-like clarity.
 - Build hierarchy with scale and grid placement rather than ornamental chrome: 12-column offsets, 75% text widths, and 90%-leading display lines make short mission statements feel authoritative.
 - Alternate 40/80px general stacks with 80/160px product-story beats; the larger cadence gives technical claims and full-bleed hardware imagery room to register.
 - Keep navigation and supporting labels compact and uppercase while leaving the main message sentence-case and oversized; this separates system metadata from narrative voice.

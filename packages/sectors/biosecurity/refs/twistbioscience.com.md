@@ -18,7 +18,7 @@ status: full-css
 - Keep technical pages calm with a narrow semantic palette: dark blue-gray copy and cool neutral fields make the single fluorescent green action signal unmistakable.
 - Standardize complex product and resource layouts on one `1170px` container and a 12-column grid, then collapse purposefully at the explicit `768/767px` boundary rather than inventing component-specific widths.
 - Give a broad platform one memorable narrative device: the synchronized vertical carousel cycles application areas while its supporting claim and CTA remain stable.
-- Encode hierarchy through repeatable micro-patterns—13px uppercase tabs, `.14em` tracking, 2px active rules, and 24px gaps—so dense scientific navigation remains scannable.
+- Encode hierarchy through repeatable micro-patterns - 13px uppercase tabs, `.14em` tracking, 2px active rules, and 24px gaps - so dense scientific navigation remains scannable.
 
 ## Avoid (1-2 bullets)
 - Do not reuse the carousel's fixed positioning, 554px media height, or extreme title tracking without the mobile fallback; the source hides the image column below `768px` and reduces title size/tracking below `1200px`.

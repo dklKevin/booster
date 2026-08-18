@@ -17,7 +17,7 @@ status: full-css
 ## Lessons (3-5 bullets)
 - Make the product model concrete: pair the Zero Trust claim with role-specific tabs and a large network illustration instead of relying on abstract security imagery.
 - Use a warm near-neutral canvas, hairline neutral borders, and very low shadows (`0 4px 8px #18171705`) so dense UI-like cards remain approachable without losing technical credibility.
-- Keep the main hierarchy typographically simple—one variable sans for prose and display, one compact mono for technical labels—then create distinction through scale, case, and tracking.
+- Keep the main hierarchy typographically simple - one variable sans for prose and display, one compact mono for technical labels - then create distinction through scale, case, and tracking.
 - Let trust evidence occupy real layout space: the homepage follows its centered claim with a broad customer-logo field and developer testimonials before the final conversion panel.
 - Preserve one wide container system while constraining explanatory copy to `768px` and major feature headings to `900px`; this keeps long pages expansive but readable.
 

@@ -11,7 +11,7 @@ status: full-css
 - Spacing rhythm: a 4px base with recurring `8px`, `16px`, `24px`, `32px`, and `48px`; main shells use `16px` padding, rising to `32px` at 768px, while portfolio rows use `48px` gaps and padding.
 - Shape and depth: `8px` base radius; wood uses a five-stop diagonal gradient plus inset highlights/shadows and a `0 8px 24px #32221b66` outer shadow.
 - Layout intent: center a fixed `440 × 600px` game object in a full-viewport shell; interior portfolio content switches between a full-width horizontal carousel and a wrapped grid capped at `72rem`.
-- Signature element: the entire navigation is a playable, flippable wooden pachinko board—pulling its lever drops a ball, while engraved labels act as links; portfolio companies repeat the metaphor as `240px` wooden balls (`208px` in grid view).
+- Signature element: the entire navigation is a playable, flippable wooden pachinko board - pulling its lever drops a ball, while engraved labels act as links; portfolio companies repeat the metaphor as `240px` wooden balls (`208px` in grid view).
 
 ## Lessons (3-5 bullets)
 - Turn the investment thesis into the interaction model: “make your own luck” is demonstrated through the pachinko mechanic instead of explained in a conventional hero.

@@ -11,13 +11,13 @@ status: wayback
 - Heading scale: 24/32px mobile, 30/44px tablet, 32/44px desktop; homepage quick-link hero reaches 44/60px at 1280px+.
 - Spacing rhythm: 4, 8, 12, 16, 20, and 24px inside components; section padding steps from 24px sides to 40/60/80px and up to 80px vertically.
 - Layout intent: centered, full-width stacked sections; content caps at 1280-1440px, with responsive 24/40/60/80px gutters and grids expanding 2 to 3 to 6 columns.
-- Signature element: the insurance-aware hero search module—a white, shadowed 78px desktop bar for care, location, and insurance, ending in a #FEED5A search button—set against the peach/yellow illustrated field.
+- Signature element: the insurance-aware hero search module - a white, shadowed 78px desktop bar for care, location, and insurance, ending in a #FEED5A search button - set against the peach/yellow illustrated field.
 
 ## Lessons (3-5 bullets)
 - Put the core patient task before institutional messaging: specialty, location, and insurance are handled together in the dominant hero control.
 - Use a warm cream/peach/yellow system to make healthcare feel approachable, while keeping #333333 text and white form surfaces for legibility and task clarity.
 - Keep responsive behavior tokenized: the same sections progress through 24/40/60/80px gutters and 2/3/6-column grids instead of adopting page-specific breakpoints ad hoc.
-- Pair friendly marketing sections with concrete trust and utility modules—top-rated doctors, wait time, insurance coverage, health-system logos, and appointment slots—not decorative claims alone.
+- Pair friendly marketing sections with concrete trust and utility modules - top-rated doctors, wait time, insurance coverage, health-system logos, and appointment slots - not decorative claims alone.
 - Concentrate saturated color in actions, ratings, and illustrated section fields; most reading and booking surfaces remain #FFFFFF or #FDFAEE.
 
 ## Avoid (1-2 bullets)

@@ -17,7 +17,7 @@ status: full-css
 ## Lessons (3-5 bullets)
 - Build scientific and corporate content on one explicit 24-column grammar: the same track math supports a full-bleed hero, editorial pages, card grids, and the dense R&D pipeline without changing the underlying system.
 - Let brand color carry hierarchy more than decoration: `#001965` consistently unifies copy, dividers, icons, and backgrounds, while `#005ad2` is reserved for interactive emphasis.
-- Use a deliberately wide display-to-body ratio—`148px/156px` display against `20px/36px` copy—then preserve the hierarchy with explicit mobile tokens rather than simple proportional scaling.
+- Use a deliberately wide display-to-body ratio - `148px/156px` display against `20px/36px` copy - then preserve the hierarchy with explicit mobile tokens rather than simple proportional scaling.
 - Keep long-form healthcare material readable with generous line-height and section cadence: `20px/36px` body copy, `60px` component padding, and the `12–120px` spacing ladder recur across editorial and data-heavy interiors.
 - Place the expressive brand moment at the edge of the experience: the faint “change” footer watermark adds distinctiveness without competing with regulated or evidence-heavy page content.
 

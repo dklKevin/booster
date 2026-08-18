@@ -16,7 +16,7 @@ status: full-css
 ## Lessons (3-5 bullets)
 - Let high-quality aviation imagery carry the hierarchy: keep each major program to one viewport, one technical category label, one headline, and one action instead of layering on dashboard-like chrome.
 - Pair cinematic storytelling with engineering precision: 13px uppercase yellow labels and explicit program categories make dramatic imagery feel factual and navigable.
-- Scale gutters as decisively as headlines—96/48/24px preserves strong edge alignment without crowding either wide displays or phones.
+- Scale gutters as decisively as headlines - 96/48/24px preserves strong edge alignment without crowding either wide displays or phones.
 - Use a narrowly controlled monochrome system, then reserve one high-visibility accent (#FFF555) for taxonomy, interaction, and focus states so the visual language stays coherent.
 - Keep detail and editorial pages on the same tokens and clamp(80px, 10vw, 140px) section cadence; structural variety does not require a second visual system.
 

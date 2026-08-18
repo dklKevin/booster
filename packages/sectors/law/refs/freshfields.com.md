@@ -11,13 +11,13 @@ status: full-css
 - Supporting scale: subtitles 24/22/20px; body 18/17/14px; homepage hero is 80px/88px desktop and 40px/44px below desktop.
 - Spacing rhythm: 4px base with 4, 6, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80 and 96px steps; recurring section padding is 24px inline and 80px block.
 - Layout intent: fluid full-width bands with 24px gutters; responsive one-to-three-column grids; utility container caps progress through 600/640/768/1024/1200/1280/1400/1600px, while readable copy is capped at 800px and the homepage hero description at 964px.
-- Signature element: a 1.5px black L-shaped frame—top and left borders only, with a 24px top-left radius—wraps the wide hero media and oversized headline, recurring as a directional corner motif on panels.
+- Signature element: a 1.5px black L-shaped frame - top and left borders only, with a 24px top-left radius - wraps the wide hero media and oversized headline, recurring as a directional corner motif on panels.
 
 ## Lessons (3-5 bullets)
 - Use a warm off-white field and near-total black typography to retain legal authority, then reserve pastel blue for actions and selected states so interaction is unmistakable without looking corporate-generic.
 - Pair an 80px proprietary display face with restrained 17–18px body text; the strong hierarchy lets short, confident positioning coexist with dense legal material on interior pages.
 - Keep the shell fluid and generous, but cap prose at 800px; Freshfields separates expressive full-width media and card grids from readable long-form content.
-- Turn one simple construction detail—the open, rounded corner frame—into a repeatable brand cue across video, headings and colored panels instead of decorating every component differently.
+- Turn one simple construction detail - the open, rounded corner frame - into a repeatable brand cue across video, headings and colored panels instead of decorating every component differently.
 - Let responsive behavior change composition, not merely scale: three-column capability groups collapse to one column and the hero drops from 80px to 40px while preserving 24px gutters and the corner motif.
 
 ## Avoid (1-2 bullets)

@@ -17,7 +17,7 @@ status: full-css
 ## Lessons (3-5 bullets)
 - Pair an expressive variable display face with a quiet UI sans and a purpose-built mono; the three roles make marketing, navigation, and code samples distinct without changing the overall voice.
 - Let one central content rail support explicit full-, start-, and end-bleed variants; this keeps dense documentation-like sections aligned while allowing launch moments to feel expansive.
-- Use the brand gradient as a controlled illumination system—CTA fill, clipped text, radial glow, and hover energy—against near-black neutral surfaces instead of coloring every component.
+- Use the brand gradient as a controlled illumination system - CTA fill, clipped text, radial glow, and hover energy - against near-black neutral surfaces instead of coloring every component.
 - Make code executable-looking at the top of the funnel: the hero places a copyable `npm create astro@latest` command directly under the primary CTA.
 - Scale macro spacing more aggressively than card spacing: 96/128/160px section rhythm creates narrative chapters while components stay on compact 8–48px intervals.
 

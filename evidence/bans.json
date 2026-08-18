@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "source": "DESIGN.md",
+  "bans": [
+    {
+      "id": "B001",
+      "pattern": "Inter, Poppins, Montserrat, Roboto, or Open Sans as a display face.",
+      "status": "legacy-unstructured",
+      "evidence_summary": null
+    },
+    {
+      "id": "B002",
+      "pattern": "Purple-to-blue (or any) gradient hero backgrounds, and gradient text headlines.",
+      "status": "legacy-unstructured",
+      "evidence_summary": null
+    },
+    {
+      "id": "B003",
+      "pattern": "Glassmorphism: frosted panels, backdrop-blur cards, translucent white overlays.",
+      "status": "legacy-unstructured",
+      "evidence_summary": null
+    },
+    {
+      "id": "B004",
+      "pattern": "The centered single-column hero: badge pill, big headline, subhead, two buttons.",
+      "status": "legacy-unstructured",
+      "evidence_summary": null
+    },
+    {
+      "id": "B005",
+      "pattern": "Card grids of rounded-xl boxes with soft shadows, icon top-left, title, blurb.",
+      "status": "legacy-unstructured",
+      "evidence_summary": null
+    },
+    {
+      "id": "B006",
+      "pattern": "Emoji as icons or bullets, sparkle and rocket motifs.",
+      "status": "legacy-unstructured",
+      "evidence_summary": null
+    },
+    {
+      "id": "B007",
+      "pattern": "The default SaaS palettes: indigo/violet on white, teal on navy, cream plus terracotta.",
+      "status": "legacy-unstructured",
+      "evidence_summary": null
+    },
+    {
+      "id": "B008",
+      "pattern": "Three-column feature sections with identical cards.",
+      "status": "legacy-unstructured",
+      "evidence_summary": null
+    },
+    {
+      "id": "B009",
+      "pattern": "Decorative blob shapes, dot grids, and floating abstract gradients.",
+      "status": "legacy-unstructured",
+      "evidence_summary": null
+    },
+    {
+      "id": "B010",
+      "pattern": "\"Delve/unlock/elevate/seamless\" marketing voice in interface copy.",
+      "status": "legacy-unstructured",
+      "evidence_summary": null
+    },
+    {
+      "id": "B011",
+      "pattern": "Em dashes in copy; use plain dashes.",
+      "status": "legacy-unstructured",
+      "evidence_summary": "appeared in every A/B run, 2026-08-06."
+    },
+    {
+      "id": "B012",
+      "pattern": "The accent-colored italic serif word inside a roman headline.",
+      "status": "legacy-unstructured",
+      "evidence_summary": "7 sightings across every high-effort run, 2026-08-06 to 2026-08-08; survived the spec repeatedly."
+    },
+    {
+      "id": "B013",
+      "pattern": "A full-width mustard or ochre accent band as the page's closing section.",
+      "status": "legacy-unstructured",
+      "evidence_summary": "three consecutive website builds, 2026-08-08."
+    },
+    {
+      "id": "B014",
+      "pattern": "The one-scroll website anatomy: hero, proof-stat strip, numbered service ledger, team roster, request form, colored closing band, footer. If two builds could swap outlines, the outline is the mode.",
+      "status": "legacy-unstructured",
+      "evidence_summary": "every 2026-08 website build shared it."
+    },
+    {
+      "id": "B015",
+      "pattern": "Deep forest or spruce green as the anchor palette.",
+      "status": "legacy-unstructured",
+      "evidence_summary": "seven consecutive builds across three subjects, with and without the spec, 2026-08-07 to 2026-08-09."
+    },
+    {
+      "id": "B016",
+      "pattern": "The numbered hairline service ledger: 01/02/03 rows separated by rules.",
+      "status": "legacy-unstructured",
+      "evidence_summary": "five consecutive website builds, 2026-08-07 to 2026-08-09."
+    },
+    {
+      "id": "B017",
+      "pattern": "AI-cadence copy: contrast-frame lines built as \"X, not Y\" (\"a plan, not a pitch\"), and demonstrative or prepositional scaffolding (\"This means...\", \"These are...\", \"Through this...\") carrying sentence after sentence. Say the thing directly, in the voice the organization's own front desk would use.",
+      "status": "legacy-unstructured",
+      "evidence_summary": "every 2026-08 build's copy leaned on these, 2026-08-09."
+    },
+    {
+      "id": "B018",
+      "pattern": "Aphorism headlines: the two-beat fragment pair (\"Forty tanks. Plenty to ask.\") and koan-style section titles (\"Three systems, one careful routine.\"). When a plain label does the job, the plain label wins: \"Contact\" beats \"Tell us what the tank needs to do.\" Voice lives in body copy, sparingly; headings and navigation are wayfinding.",
+      "status": "legacy-unstructured",
+      "evidence_summary": "every heading of a 2026-08-09 build."
+    }
+  ]
+}

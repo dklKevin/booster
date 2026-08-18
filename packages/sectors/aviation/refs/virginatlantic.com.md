@@ -17,7 +17,7 @@ status: full-css
 - Separate the bounded information grid (1200px) from the wider visual stage (1280px), so booking and editorial content feel related without making imagery timid.
 - Use a light-weight, generously led display scale (up to 64/76px) while keeping operational copy at 16/24px; this preserves an aspirational tone without weakening scanability.
 - Make responsive spacing systematic: increase gutters 16→24→40px and section padding 48→64→96px at explicit breakpoints instead of scaling every component independently.
-- Carry one recognizable hero construction across sales and destination pages—the overlapping dark copy panel turns varied campaign photography into a consistent branded frame.
+- Carry one recognizable hero construction across sales and destination pages - the overlapping dark copy panel turns varied campaign photography into a consistent branded frame.
 - Reserve vivid reds and cabin/status colors for meaning and interaction, letting near-black and white backgrounds do most of the compositional work.
 
 ## Avoid (1-2 bullets)

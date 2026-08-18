@@ -2,16 +2,16 @@
 status: full-css
 
 ## Token block (~10 lines)
-- Palette—canvas `#ffffff`; layer/subtle surface `#f4f4f4`; divider `#e0e0e0`; strong border `#8d8d8d`.
-- Palette—primary text and dark field `#161616`; secondary text `#525252`; inverse surface `#393939`; inverse text `#ffffff`.
-- Palette—brand/link/button `#0f62fe`; link/primary hover `#0043ce`/`#0050e6`; dark-theme interactive `#4589ff`.
-- Palette—support roles: success `#24a148`, error `#da1e28`, warning `#f1c21b`; visited link `#8a3ffc`.
-- Type—IBM Plex Sans with stack `IBM Plex Sans, system-ui, -apple-system, BlinkMacSystemFont, .SFNSText-Regular, sans-serif`; IBM Plex Mono for code and IBM Plex Serif for quotations.
-- Type scale—12px labels/captions; 14px compact/body; 16px body; headings 20, 28, 32, 42 and 54px; expressive heading 05 fluidly rises from 32px to 60px at the 99rem breakpoint.
-- Type behavior—body line-heights 1.375–1.5; large headings use weight 300–400 and line-height 1.17–1.25; small headings use weight 600.
-- Spacing—Carbon rhythm `0.125, 0.25, 0.5, 0.75, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 10rem`; fluid spacing tokens `0, 2vw, 5vw, 10vw`.
-- Layout—4 columns mobile, 8 from 42rem, 16 from 66rem; 2rem grid gutter; 1/2/2.5rem container padding; content max-width 99rem; grid margin becomes 1rem at 42rem and 1.5rem at 99rem.
-- Signature—an expanded 6/8/2-column leadspace pairs content, media and a slim aside; its current headline uses a 90deg blue-to-purple text gradient, `#0f62fe` → `#8a3ffc`.
+- Palette - canvas `#ffffff`; layer/subtle surface `#f4f4f4`; divider `#e0e0e0`; strong border `#8d8d8d`.
+- Palette - primary text and dark field `#161616`; secondary text `#525252`; inverse surface `#393939`; inverse text `#ffffff`.
+- Palette - brand/link/button `#0f62fe`; link/primary hover `#0043ce`/`#0050e6`; dark-theme interactive `#4589ff`.
+- Palette - support roles: success `#24a148`, error `#da1e28`, warning `#f1c21b`; visited link `#8a3ffc`.
+- Type - IBM Plex Sans with stack `IBM Plex Sans, system-ui, -apple-system, BlinkMacSystemFont, .SFNSText-Regular, sans-serif`; IBM Plex Mono for code and IBM Plex Serif for quotations.
+- Type scale - 12px labels/captions; 14px compact/body; 16px body; headings 20, 28, 32, 42 and 54px; expressive heading 05 fluidly rises from 32px to 60px at the 99rem breakpoint.
+- Type behavior - body line-heights 1.375–1.5; large headings use weight 300–400 and line-height 1.17–1.25; small headings use weight 600.
+- Spacing - Carbon rhythm `0.125, 0.25, 0.5, 0.75, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 10rem`; fluid spacing tokens `0, 2vw, 5vw, 10vw`.
+- Layout - 4 columns mobile, 8 from 42rem, 16 from 66rem; 2rem grid gutter; 1/2/2.5rem container padding; content max-width 99rem; grid margin becomes 1rem at 42rem and 1.5rem at 99rem.
+- Signature - an expanded 6/8/2-column leadspace pairs content, media and a slim aside; its current headline uses a 90deg blue-to-purple text gradient, `#0f62fe` → `#8a3ffc`.
 
 ## Lessons (3-5 bullets)
 - Give complex enterprise content one rigid responsive skeleton: IBM's 4/8/16-column progression lets hero, product-card and editorial modules align without looking templated.

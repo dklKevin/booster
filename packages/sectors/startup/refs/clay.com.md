@@ -10,7 +10,7 @@ status: full-css
 - Body scale: large `1.5rem` (`1.25rem` mobile), medium `1.25rem` (`1.125rem` mobile), regular `1rem`, small `0.875rem`; line-heights `1.3 / 1.25 / 1.4 / 1.3`.
 - Spacing rhythm: explicit `0.25, 0.5, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4, 4.5, 5, 6, 7, 8, 11rem` scale; core gaps are `1 / 1.25 / 1.5 / 2rem`.
 - Section/card rhythm: desktop vertical sections `3 / 4 / 6 / 9rem` (small/regular/medium/large); card padding `1 / 1.5 / 2 / 3rem`; both contract at `991px` and `479px`.
-- Layout intent: centered percentage-width shells—standard `.container` is `90%` with `75rem` max, while current navigation/hero shells are `95%` with `125rem` max; global desktop gutters are `2.5rem`, reduced to `1.25rem` below `991px`.
+- Layout intent: centered percentage-width shells - standard `.container` is `90%` with `75rem` max, while current navigation/hero shells are `95%` with `125rem` max; global desktop gutters are `2.5rem`, reduced to `1.25rem` below `991px`.
 - Signature element: a `120vh` (`52rem` min, `67rem` max) deep-green hero whose source contains a full-bleed video/poster of a colorful playful contraption with tubes, balls, magnets, and a funnel, staged behind oversized warm-white revenue copy.
 
 ## Lessons (3-5 bullets)

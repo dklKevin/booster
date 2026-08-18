@@ -14,7 +14,7 @@ status: full-css
 - Signature element: emphasized words switch from light Suisse Neue to uppercase Thermochrome and sit over an animated color band built as a `103%`-wide, `75%`-high pseudo-element behind the letters.
 
 ## Lessons (3-5 bullets)
-- Encode product and mission families as a controlled color system—blue for AI, red for mission areas, green for company/homepage, amber for careers—while keeping the same typography and layout grammar across them.
+- Encode product and mission families as a controlled color system - blue for AI, red for mission areas, green for company/homepage, amber for careers - while keeping the same typography and layout grammar across them.
 - Pair very light, tightly tracked grotesk headlines with a visibly technical variable face only on emphasized words; this creates a defense-tech voice without turning every label into faux-military UI.
 - Use the `4px` spacing base for controls and cards, then make section cadence jump decisively to `112–128px`; the contrast keeps dense information legible while preserving editorial drama.
 - Let full-width color fields establish context, but constrain actual compositions to `1440px` and prose to `672–768px`; the system scales from cinematic heroes to readable long-form sections.

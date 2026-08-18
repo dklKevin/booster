@@ -2,9 +2,9 @@
 status: full-css
 
 ## Token block (~10 lines)
-- Palette—core: #FFFFFF page/background, #000000 primary text, #F0F9FF soft sky-tinted surface.
-- Palette—action: #00BCFF primary CTA, #00A6F4 CTA hover, #052F4A CTA text/dark sky.
-- Palette—illustration: #F8F4F2 warm town-scene field, #FF7250 terminal character/caret accent, #4B3D35 terminal surface, #695E57 window controls.
+- Palette - core: #FFFFFF page/background, #000000 primary text, #F0F9FF soft sky-tinted surface.
+- Palette - action: #00BCFF primary CTA, #00A6F4 CTA hover, #052F4A CTA text/dark sky.
+- Palette - illustration: #F8F4F2 warm town-scene field, #FF7250 terminal character/caret accent, #4B3D35 terminal surface, #695E57 window controls.
 - Display/marketing face: "Sprig Sans", -apple-system, sans-serif; supplied at 400 and 700.
 - Product/UI face: IBM Plex Sans, -apple-system, sans-serif; supplied at 400, 600, and 700.
 - Code face: "iA Writer Mono", "Menlo", "Consolas", "ui-monospace", monospace.

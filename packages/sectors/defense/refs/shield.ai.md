@@ -10,8 +10,8 @@ status: full-css
 - Type scale / display: huge title clamp(76px, 10vw, 164px); big title clamp(56px, 5.7vw, 76px), falling to clamp(36px, 8.5vw, 48px) below 650px; section title clamp(32px, 4.5vw, 56px).
 - Type scale / supporting: body 15px/1.2; subtitle 14px/1 with .07em tracking (12px/16px on mobile); nav and buttons 12px/1 with .11em and .07em tracking respectively; homepage hero title 48px mobile and 100px desktop with a 24px tagline.
 - Spacing rhythm: 4px-based utilities (4, 8, 12, 16, 20, 24, 32, 40, 48, 64px); recurring section padding is 64px mobile/128px desktop, 80px/160px, and on the V-BAT lead section 80px/192px.
-- Layout intent: full-bleed video and dark/light bands around a centered container—16px gutters by default; max-width 1200px at 1200, 1280px with 64px gutters at 1280, 1440px with 120px gutters at 1440, then 1650px and 1800px caps.
-- Signature element: bracketed control chrome—four 6×6px, 1px cloud-colored corner marks offset -2px from buttons; hover fills #FF6343 and scales the bracket layers to .9.
+- Layout intent: full-bleed video and dark/light bands around a centered container - 16px gutters by default; max-width 1200px at 1200, 1280px with 64px gutters at 1280, 1440px with 120px gutters at 1440, then 1650px and 1800px caps.
+- Signature element: bracketed control chrome - four 6×6px, 1px cloud-colored corner marks offset -2px from buttons; hover fills #FF6343 and scales the bracket layers to .9.
 
 ## Lessons (3-5 bullets)
 - Let full-viewport, autoplay-muted-looping product footage carry the first impression, then anchor it with one centered product name, one concise capability line, and one action; the homepage repeats this exact frame for X-BAT, Hivemind, and V-BAT.

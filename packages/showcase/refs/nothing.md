@@ -10,3 +10,5 @@ status: full-css
 - Signature: a 512px-wide, 8px-radius #fffc panel with 45px backdrop blur floats over full-bleed product media, pairing an Ndot label and product cutout above a full-width black CTA.
 
 Avoid: Copying only the dot-matrix face turns the system into costume; its identity depends on sparse microtype, exact product cutouts, cinematic full-viewport media, and disciplined overlay geometry. Do not proliferate the red/yellow markers or frosted panel outside their specific navigation and product-story roles.
+
+Note: this site uses techniques our ban list forbids (frosted glass / blur chrome). Documented for range; learn the thinking, never the banned material.

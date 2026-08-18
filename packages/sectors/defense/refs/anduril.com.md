@@ -11,7 +11,7 @@ status: full-css
 - Responsive root: `14px` below 1280; `calc(1.25vw - 2px)` from 1280, `calc(.416667vw + 10px)` from 1440, `calc(1.25vw - 6px)` from 1920, capped at `24px` from 2400.
 - Spacing rhythm: named row gaps `0`, `.5rem`, `1rem`, `2rem`, `3rem`, `4rem`, `7rem`; recurring section inset is `2rem` desktop and `1.428rem` mobile, with standard section margin `2rem auto`.
 - Layout intent: fluid 12-column grid with `1.125rem` column and `1.25rem` row gaps (`.357rem` mobile); ordinary sections are `calc(100% - 4rem)`, capped at `calc(1440px - 4rem)` on viewports at least 1920px, while cinematic/header slices opt into full width.
-- Signature element: the `#dff140` reveal layer—used as bright text/overlay and as a bottom-origin accordion background that scales from `scaleY(0)`—punctuates near-black, full-bleed video/product imagery.
+- Signature element: the `#dff140` reveal layer - used as bright text/overlay and as a bottom-origin accordion background that scales from `scaleY(0)` - punctuates near-black, full-bleed video/product imagery.
 
 ## Lessons (3-5 bullets)
 - Build authority through controlled contrast: reserve one high-energy accent (`#dff140`) for state changes and reveals, while the majority of the interface stays near-black, white, or warm gray.

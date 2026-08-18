@@ -2,7 +2,7 @@
 status: full-css
 
 ## Default patterns observed (5-8 bullets)
-- Hero pattern: announcement strip and full product nav lead into the 72px/72px desktop headline “Finance built for speed and control,” a one-line breadth claim (“cards, banking, expenses, accounting, and more — in 120+ countries”), paired “Get started” / “See Brex in action” CTAs, and a wide device-and-card render with substantial white negative space.
+- Hero pattern: announcement strip and full product nav lead into the 72px/72px desktop headline “Finance built for speed and control,” a one-line breadth claim (“cards, banking, expenses, accounting, and more - in 120+ countries”), paired “Get started” / “See Brex in action” CTAs, and a wide device-and-card render with substantial white negative space.
 - Palette: near-black #15191E for primary text, white #FFFFFF and cool off-white #FCFCFD surfaces, pale gray #F3F3F7 section/card fields, vivid orange #FF3D00 for the main brand/CTA accent with #FF5900 and #FF6B18 interaction variants, and midnight #000710 for the announcement bar and footer.
 - Type: variable Inter (400–700) carries navigation, the 72px hero, section headings, body copy, buttons, metrics, and footer; Flecha is reserved for the 36px/40px customer quotation. Bronzea and Space Mono are loaded, but their visible-homepage roles are unverified.
 - Layout clichés: a 24-column desktop grid organizes stacked full-width sections; the page moves from logo proof to five rounded 12px product cards, a three-card company-stage grid, alternating copy/product-UI feature volleys, a three-metric outcomes band, a customer-story carousel, a pre-footer conversion panel, and an article-card feed.

@@ -24,3 +24,5 @@ status: wayback
 ## Avoid (1-2 bullets)
 - Do not copy the 250vh video treatment without responsive start frames, reduced-motion handling, masks, and mobile-specific sources; the source includes all four to control cost and accessibility.
 - Do not reproduce the broad accent palette ad hoc; its colors work because every section maps them through consistent semantic surface, text, icon, border, hover, and active roles.
+
+Note: this site uses techniques our ban list forbids (frosted glass / blur chrome). Documented for range; learn the thinking, never the banned material.

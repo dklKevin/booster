@@ -2,10 +2,10 @@
 status: full-css
 
 ## Token block (~10 lines)
-- Palette—light surfaces: white `#ffffff`; subdued canvas `#f8fafd`; quiet border `#e5edf5`.
-- Palette—content: solid heading/body `#061b31`; softer body `#50617a`; subdued text `#64748d`.
-- Palette—brand/action: primary violet `#533afd`; hover violet `#4032c8`; pale action surface `#e8e9ff`; focus/input violet `#665efd`.
-- Palette—signature accents: gradient stops `#bdb4ff`, `#643afd`, `#533afd`; stat gradients combine `#ffd601`, `#ee30fb`, and `#635bff`.
+- Palette - light surfaces: white `#ffffff`; subdued canvas `#f8fafd`; quiet border `#e5edf5`.
+- Palette - content: solid heading/body `#061b31`; softer body `#50617a`; subdued text `#64748d`.
+- Palette - brand/action: primary violet `#533afd`; hover violet `#4032c8`; pale action surface `#e8e9ff`; focus/input violet `#665efd`.
+- Palette - signature accents: gradient stops `#bdb4ff`, `#643afd`, `#533afd`; stat gradients combine `#ffd601`, `#ee30fb`, and `#635bff`.
 - Type pairing: `"sohne-var", "SF Pro Display", sans-serif` for UI/display; `SourceCodePro` at weight 500 for code.
 - Body scale: `0.75rem`, `0.875rem`, `1rem`, `1.125rem`, `1.25rem`; body line-height is mostly `1.35–1.45`, generally at weight 300.
 - Heading scale: mobile `0.875/1/1.125/1.25/1.375/1.75/2.125rem`; desktop (940px+) `0.875/1/1.375/1.625/2/3/3.5rem`, weight 300 with `-0.01em` to `-0.025em` tracking.

@@ -14,7 +14,7 @@ status: full-css
 - Signature element: a full-viewport-width, `240px` dark hero using `/img/topo.svg` over a `#1f1f1f` to `#2d2d2d` gradient, centered oversized `</> htmx` wordmark, blue slash/x accents, inset shadows, and a `500ms` fade/vertical reveal.
 
 ## Lessons (3-5 bullets)
-- Give an open-source project one unmistakable brand moment—the topographic dark hero and code-shaped wordmark—while keeping the documentation surface quiet and utilitarian.
+- Give an open-source project one unmistakable brand moment - the topographic dark hero and code-shaped wordmark - while keeping the documentation surface quiet and utilitarian.
 - Use the same centered shell for marketing, essays, and reference content, then let documentation alone opt into a wider breakpoint ladder and sticky `12rem` contents rail.
 - Make dark mode a token substitution through `prefers-color-scheme`, including navigation, borders, footer, search, alerts, and alternate/inverted sponsor artwork rather than only swapping page colors.
 - Keep developer content dense but legible: `16px/1.5em` prose, restrained `40em` measure, small regular spacing increments, and differentiated inline versus block code surfaces.

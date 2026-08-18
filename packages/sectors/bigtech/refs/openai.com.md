@@ -12,7 +12,7 @@ status: wayback
 - UI scale: navigation/meta/CTA `13–14px`, generally weight 500; caption `14px/22.96px` at 400.
 - Spacing rhythm: `4px` base unit; repeated source utilities resolve to `16px`, `20px`, `24px`, `32px`, `40px`, `44px`, `48px`, `64px`, `80px`, and `120px`; page padding is `24px`, increasing to `32px`.
 - Layout intent: fluid full-width sections inside a `90rem` desktop container, with `100%` mobile width, a `63.75rem` desktop-nav breakpoint, and a `54px` mobile / `64px` desktop header; editorial layouts can override the container to `65rem`, with readable copy capped at `65ch`.
-- Signature element: a homepage hero that is itself a ChatGPT composer—`768px` max width, `16px` mobile / `24px` desktop radius, three-row textarea, circular send control, and pill prompt links—before the large 16:9 editorial media feed.
+- Signature element: a homepage hero that is itself a ChatGPT composer - `768px` max width, `16px` mobile / `24px` desktop radius, three-row textarea, circular send control, and pill prompt links - before the large 16:9 editorial media feed.
 
 ## Lessons (3-5 bullets)
 - Make the flagship product interaction the homepage's first visual object: the composer communicates capability faster than a slogan while the prompt pills expose distinct entry paths.

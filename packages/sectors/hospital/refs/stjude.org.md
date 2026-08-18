@@ -17,7 +17,7 @@ status: wayback
 - Put the hospital’s three highest-intent routes directly beneath the emotional hero: the source pairs “Refer a Patient,” “Explore Our Research,” and “Donate Now” in one action rail instead of forcing each audience back through navigation.
 - Separate expressive and reading widths: full-bleed/105rem imagery carries human impact, while the 60%/61rem text measure keeps clinical and research content scannable.
 - Use one institutional type family across patient-care and research subsites, then create hierarchy through a wide, explicit size/weight scale rather than introducing unrelated display faces.
-- Preserve a small semantic core—red for brand/action, blue for links, near-black for text—while reserving the larger accent palette for tagged campaigns and differentiated content modules.
+- Preserve a small semantic core - red for brand/action, blue for links, near-black for text - while reserving the larger accent palette for tagged campaigns and differentiated content modules.
 - Let section templates vary by audience while retaining tokens: the fetched research page uses an animated hero carousel and 12-column grid, while treatment uses an overlaid hero and responsive Bootstrap-style columns.
 
 ## Avoid (1-2 bullets)

@@ -12,7 +12,7 @@ status: full-css
 - Body scale: 24/31.2px large (-0.24px), 18/25.2px base (-0.18px), 16/22.4px small (-0.16px); emphasis raises body weight from 400 to 500.
 - Spacing rhythm: 4px-derived utilities, with recurring 12/16/24/32px gaps, 48/80px responsive section padding, and 64/80/96px large separations.
 - Layout intent: centered 1,192px content inside a 1,512px outer shell with 16–20px edge padding; focused copy narrows to 700–840px, then opens into responsive 1→2 or 1→4 column grids.
-- Signature element: full-bleed alarmalade-to-white gradient stages containing crisp white, rounded product/UI cards—editorial serif storytelling visibly fused with the incident console.
+- Signature element: full-bleed alarmalade-to-white gradient stages containing crisp white, rounded product/UI cards - editorial serif storytelling visibly fused with the incident console.
 
 ## Lessons (3-5 bullets)
 - Give an operational product a memorable editorial voice: the 80px serif headline carries the story while the sans face keeps controls, proof, and product detail precise.

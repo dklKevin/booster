@@ -8,7 +8,7 @@ status: full-css
 - Type pairing: "Ringside Sans", Ringside, sans-serif for body/headings; "Ringside Sans Extra Wide", "Ringside Extra Wide", sans-serif for emphatic display; "Garamond Narrow Condensed", "ITC Garamond Std", Garamond, garamond, serif as the editorial serif.
 - Display scale: Extra Wide 40px/1.1 mobile to 100px/1 desktop at 900 weight; Garamond 48px/1 mobile to 100px/1 desktop at 400 weight.
 - Heading scale: 20, 24, 28, 32, 36, 40px mobile and 24, 28, 32, 36, 48, 60px desktop; body 14px/1.43, 16px/1.5, and 18px/1.56 mobile to 20px/1.5 desktop for large copy.
-- Spacing rhythm: 8px base progression—8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 112, 120, 128, 136, 144, 152, 160px—with 2px and 4px micro steps.
+- Spacing rhythm: 8px base progression - 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96, 112, 120, 128, 136, 144, 152, 160px - with 2px and 4px micro steps.
 - Shape: radii run 12, 16, 20, 24, 28, 32, 40, and 48px; buttons use 32–40px radii and media/cards commonly use 24–48px.
 - Layout intent: centered 12-column grid capped at 90rem (1440px), with 64px margins/32px gutters desktop, 48px/24px tablet, and 16px/16px mobile; narrow sections span 10 columns and wide reading sections span 8.
 - Signature element: a 900px full-bleed image/video hero with cover media, an overlaid up-to-100px Ringside or Garamond title, white text, and a 70% black-to-transparent horizontal dimmer gradient.

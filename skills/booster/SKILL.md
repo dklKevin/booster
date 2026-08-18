@@ -1,18 +1,51 @@
 ---
 name: booster
-description: Scan the current repo/brief and recommend which design packs and refs from Kevin's design library (~/.claude/design/packages/) to load before building any UI or page. Use whenever the user invokes /booster, asks "which pack should I use", "what design direction fits this project", or wants a design recommendation grounded in the library instead of picking packs by hand. This is the manual routing entry point for the design system.
+description: Build a distinctive UI, page, or website from a brief, business materials, or a new empty workspace by routing to the right Booster packs and references before implementation. Use when the user invokes Booster, starts a visual build, has only a business name and description, needs a new website folder, lacks imagery, or wants a result grounded in the library instead of a preset.
 ---
 
 # Booster: design-pack routing
 
-You are routing a brief to the right slice of Kevin's design library so the build derives from evidence instead of the mode.
+You are routing a brief to the right slice of the Booster design library so the build derives from evidence instead of the mode.
 The library is two-axis: form packages (how a page is built) and sector packages (what credibility means in an industry).
 Loading narrow matters: 2-3 refs total, chosen for the brief, so no single site can dominate the generation.
 
+The default product is a one- or two-shot website build. Keep routing machinery behind the result when the user asked to build. Ask only for missing facts that materially block a credible site, and never turn normal intake into a design questionnaire.
+
+## Step 0: Establish the workspace and asset path
+
+If a usable project or repository is already open, use it and do not ask a folder question.
+
+If no usable project is open, ask one question:
+
+> Do you already have a folder with files about the business, or should I create a new website folder?
+
+- **Existing folder:** ask for its path or for the user to attach/open it, then inspect it read-only before changing anything.
+- **New folder:** ask, "What should the folder be called? You can leave this blank if you do not know yet."
+- If the folder name is blank, derive a safe slug from the known business name. If the business name is also unknown, use `website-draft-YYYYMMDD` and tell the user it can be renamed later.
+- Create the folder only inside a user-authorized writable project location. If no safe parent location is known, ask where to put it instead of writing into the home directory or filesystem root.
+- Framework selection belongs to the active builder and project instructions. Ask about it only when the choice would materially change the requested result.
+
+Scan the selected folder for business material before asking for facts: README and notes, PDFs, menus, copy, logos, brand files, existing source, and raster images (`jpg`, `jpeg`, `png`, `webp`, `avif`, `heic`). Never invent an address, hours, price, menu item, translation, testimonial, award, staff member, or business history. Use clearly labeled placeholders when the user prefers a first draft without those facts.
+
+### When no usable photographs exist
+
+Detect the active agent's actual image-generation capability. Do not infer capability from the phrase "OpenAI account" or from the agent's brand.
+
+- If the built-in image-generation tool and `imagegen` skill are available, say: "I did not find usable business photos. Image generation is available here. Would you like me to generate an art-directed website image set, build with art-directed placeholders that can be replaced later, or create an imagery-light direction?"
+- If the user chooses generation, invoke `imagegen` and generate only the assets the chosen direction needs. Save selected final assets into the project's established asset directory and update the website to use those project-local files.
+- Treat generated images as concept or brand imagery. For a real business, never portray a generated storefront, interior, employee, customer, dish, product, credential, or event as documentary evidence of what exists. Label generated assets for replacement before publication when they could be mistaken for factual business photography.
+- Ground generation in supplied facts. Do not fabricate logos, signage, Korean or other translated text, menu items, prices, people, or claims.
+- If the capability is unavailable, say: "I did not find usable business photos, and image generation is not available in this agent. I can still build an imagery-light site, build with art-directed image spaces and save a generation brief for later, or wait for you to upload photos."
+- Do not make unavailable image generation sound like an error or block the first shot. An imagery-light direction must be deliberately complete. An art-directed placeholder must hold the exact aspect ratio, crop behavior, boundary treatment, responsive role, and visual weight of the future asset instead of appearing as a gray box.
+- When the user chooses art-directed spaces for later generation, save a concise image brief in the project's existing design-doc location or `docs/booster-image-brief.md`. For each asset record its intended filename, page placement, aspect ratio, factual inputs, generation prompt, avoid list, and whether it is illustrative or must be replaced with real business photography. If the project is later opened in an agent with image generation, use that brief without redesigning the page, save the generated files into the project, and re-run the rendered audit.
+- Mention an API/CLI fallback only when the user explicitly asks for it. Never pressure a user on Claude or another agent to switch products merely to complete the website.
+- If usable photographs already exist, prefer them and do not generate replacements unless the user asks.
+
 ## Step 1: Scan for context
 
-Gather only what identifies the subject, audience, and job of the page. Usual sources, cheapest first:
+Gather only what identifies the subject, audience, job, and existing visual language. Usual sources, cheapest first:
 - The conversation itself: if the user already described what they're building, that outranks everything on disk.
+- Project design documents, CSS variables, Tailwind or theme configuration, shared components, and brand assets. Preserve an established system unless the brief calls for a redesign.
 - README.md, package.json (name/description/dependencies), site copy in src/pages or app/ routes, marketing strings.
 - Domain keywords that signal a sector (patients/clinical, flights/fleet, contributors/license, reps/scoops, funds/portfolio...).
 
@@ -20,7 +53,7 @@ Do not deep-read the codebase; this is a routing decision, not a review. A minut
 
 ## Step 2: Pick the form package
 
-One of `~/.claude/design/packages/`: interface (tool/app UI with controls), editorial (idea-led presentation and landing pages), document (long-form reading), personal (Kevin's own identity/portfolio), gallery (imagery-first, interface recedes), showcase (a physical object that must be desired).
+One of `~/.claude/design/packages/`: interface (tool/app UI with controls), editorial (idea-led presentation and landing pages), document (long-form reading), personal (the repository's identity/portfolio style), gallery (imagery-first, interface recedes), showcase (a physical object that must be desired).
 Pick by the page's job, not its industry.
 
 ## Step 3: Pick the sector package, if one applies
@@ -32,12 +65,20 @@ Many briefs have no sector: that is a normal outcome, not a failure. Never force
 
 Read the chosen packages' PACK.md range maps, then pick refs that SPAN a range relevant to the brief (two different poles beat two similar sites).
 Cross-package borrowing is legitimate: a hospital dashboard might take one interface ref and one hospital ref.
-Prefer offering FOUR pole-spanning refs with the instruction to choose two and name the choices; a builder that picks its own range markers derives more and clones less.
+Prefer offering FOUR pole-spanning candidate paths from the PACK maps or search index, with the instruction to choose two and name the choices. Treat those four as a shortlist, not four loaded references: open no more than 2-3 ref files total. A builder that picks its own range markers derives more and clones less.
 Rotate refs between builds on the same subject; feeding the same trio every time re-converges the results.
+
+When the search tool is installed, use it as a shortlist generator instead of loading the catalog:
+
+```sh
+python3 ~/.claude/design/tools/booster.py search "<brief terms>" --form <form> [--sector <sector>] --limit 4
+```
+
+Treat ranking as retrieval evidence, not a design decision. Read the returned PACK files, then open only the 2-3 candidate refs most relevant to the brief before recommending the shortlist. Never open all four merely because search returned them. Reject a shortlist whose candidates share the same ground hue, display voice, anchor accent, or page anatomy.
 
 ## Step 5: Deliver the recommendation
 
-ALWAYS use this exact shape:
+For a routing-only request, use this exact shape:
 
 ```
 ## Booster recommendation
@@ -55,6 +96,19 @@ all four gates are live (uniqueness including page outline, no cloning, category
 believability: would this organization actually ship it?).
 ```
 
-Then offer to load the recommended files into context and start the derive step immediately; if the user declines, they have the file list to use manually or to hand to another agent.
+For an implementation request, do not stop and make the user operate the routing machinery. Choose and name two refs from the shortlist, load no more than 2-3 ref files total, continue through derive and implementation, and summarize the chosen form, sector, refs, and subject grounding with the completed build.
 
-If the scan leaves you genuinely unsure between two form packs or two sectors, say so in one line and recommend `/booster-questions` instead of guessing.
+Ask the user to choose between refs or directions only when the available facts support materially different businesses or outcomes. Otherwise make the best grounded choice and preserve the one- or two-shot workflow.
+
+If the scan leaves you genuinely unsure between two form packs or two sectors, say so in one line and recommend the `booster-questions` skill (`$booster-questions` in Codex) instead of guessing.
+
+## Step 6: Derive when the build is proceeding
+
+Read [references/direction-record.md](references/direction-record.md) and produce its three-direction record before substantial implementation. Keep it in the response for routing-only work. Persist it under the project's existing design-doc location only when the user has authorized implementation or explicitly asks to save it.
+
+Each direction needs a compact ASCII wireframe. Run both rejection checks before selecting:
+
+1. Family collision: discard directions that share a ground hue, display voice, anchor accent, or page anatomy.
+2. Counterfactual: discard any direction that a similar prompt for a different subject would also produce.
+
+The chosen direction still passes DESIGN.md's uniqueness, no-cloning, category-legibility, and believability gates.

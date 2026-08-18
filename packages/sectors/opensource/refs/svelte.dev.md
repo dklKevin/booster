@@ -17,7 +17,7 @@ status: full-css
 - Separate reading, interface, and code voices: a display serif and bookish body make long documentation editorial, while Fira Sans and Fira Mono keep navigation and examples unmistakably functional.
 - Encode responsive whitespace as a small token progression (`1.6rem` to `3.2rem` to `4.8rem`) and reuse it in navigation, page edges, sections, and side rails.
 - Keep documentation readable at `76rem`, then spend width on navigation aids; the left index becomes fixed at 832px and the right “on this page” rail appears only at 1200px.
-- Give the homepage one bespoke brand narrative—the Svelte machine—while the blog and docs return to restrained typography and shared tokens.
+- Give the homepage one bespoke brand narrative - the Svelte machine - while the blog and docs return to restrained typography and shared tokens.
 
 ## Avoid (1-2 bullets)
 - Do not copy the three-font-plus-mono stack without disciplined roles; applying the display serif or UI sans everywhere would erase the hierarchy the pairing creates.

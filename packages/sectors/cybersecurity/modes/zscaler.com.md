@@ -12,5 +12,5 @@ status: full-css
 
 ## Tells (3 one-liners)
 - A Gartner Magic Quadrant claim occupies the hero itself, with neon-aqua emphasis against security navy and a quadrant graphic beside it.
-- Oversized quantified proof—40%, 500B+, >75—sits immediately alongside analyst, standards-body, partner, and workplace-award logos.
+- Oversized quantified proof - 40%, 500B+, >75 - sits immediately alongside analyst, standards-body, partner, and workplace-award logos.
 - Blue platform diagrams and capability-icon cards give way to a dark enterprise-customer carousel, then another analyst-report carousel and a demo CTA.

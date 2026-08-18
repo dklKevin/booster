@@ -16,7 +16,7 @@ status: full-css
 ## Lessons (3-5 bullets)
 - Make complex biotechnology feel navigable by numbering both pages and page sections, turning a sprawling narrative into an explicit scientific index.
 - Pair cinematic organism imagery and very large 120-230px display type with tiny 10-15px technical labels; the contrast carries wonder and evidentiary precision at once.
-- Reuse a small annotation grammar—hairlines, squares, discs, dots, rotated captions—across otherwise different species palettes so every page still belongs to one research system.
+- Reuse a small annotation grammar - hairlines, squares, discs, dots, rotated captions - across otherwise different species palettes so every page still belongs to one research system.
 - Scale long-form storytelling with viewport-based clamps and a fixed spacer ladder, while keeping copy in constrained columns inside the 12-column frame.
 - Reserve saturated purple, orange, and green for species identity, interactive state, or scientific notation against dominant black/white/gray fields.
 

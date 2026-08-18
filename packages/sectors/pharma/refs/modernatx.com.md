@@ -7,12 +7,12 @@ status: full-css
 - Palette / structure: dark footer/nav #083952; pale controls #E7F3F8; rules #CDD9E1; muted footer text #CED7DC.
 - Type pairing: Aeonik, Arial, sans-serif is the site-wide family (weights 300/400/500/700); Roboto Mono is loaded in weights 300/400/500/700 as the companion face.
 - Type scale: 14/20, 16/28, 18/32, 20/36, 24/36, 32/40, 40/48, 48/54, 64/72, and 80/88px (size/line-height); bold headings use weight 700.
-- Spacing rhythm: a 4px-rooted sequence appears repeatedly—8, 12, 16, 20, 24, 32, 40, 48, and 64px; section margins commonly step from 40px to 64px at desktop.
+- Spacing rhythm: a 4px-rooted sequence appears repeatedly - 8, 12, 16, 20, 24, 32, 40, 48, and 64px; section margins commonly step from 40px to 64px at desktop.
 - Layout grid: wrapped flex rows use negative 8/12/16px margins and matching column padding at mobile/tablet/desktop, with 25%, 33.333%, 50%, and 75% column spans.
 - Container: 16px mobile inset, 3.9vw at >=768px, 4.16vw at >=1024px; capped at calc(1600px + 4.16vw + 4.16vw) from 1440px.
 - Breakpoints: 768px and 1024px drive the principal layout changes; 1440px raises display type and applies the wide-container cap.
 - Shape/motion: cards and media use 12–16px radii, soft two-layer shadows, 0.2–0.3s interaction transitions, and 0.6s entrance fades with 10/20/40px vertical offsets.
-- Signature element: staggered, overlapping rounded-image hero collages—three images on the homepage (70%, 125%, 125% aspect treatments) and two on subpages—fade upward in sequence at 0.2s, 0.3s, and 0.4s delays.
+- Signature element: staggered, overlapping rounded-image hero collages - three images on the homepage (70%, 125%, 125% aspect treatments) and two on subpages - fade upward in sequence at 0.2s, 0.3s, and 0.4s delays.
 
 ## Lessons (3-5 bullets)
 - Build clinical credibility with a cool near-white canvas and deep navy typography, then reserve red for calls to action and active states; the extracted system avoids flooding scientific content with brand color.

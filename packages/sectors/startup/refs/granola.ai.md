@@ -11,7 +11,7 @@ status: full-css
 - Display treatment: regular-weight Quadrant, tight `0.93–1.1` line-height and `-0.01em` to `-0.02em` tracking; headings are frequently limited to `10ch–24ch`.
 - Spacing rhythm: 4px base token; repeated 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 112, 128 and 160px intervals; major sections commonly use 80px vertical padding, rising to 112–128px at medium widths.
 - Layout intent: centered `1280px` max-width frame with 16px mobile and 40px desktop gutters; responsive one-to-two-column grids, asymmetric fixed text columns (including `28rem`), and full-bleed color bands.
-- Signature element: oversized editorial Quadrant headlines paired with meeting-note window tableaux—macOS red `#ff736a`, yellow `#febc2e`, green `#19c332` controls, warm paper surfaces, and product UI staged as the page's visual storytelling.
+- Signature element: oversized editorial Quadrant headlines paired with meeting-note window tableaux - macOS red `#ff736a`, yellow `#febc2e`, green `#19c332` controls, warm paper surfaces, and product UI staged as the page's visual storytelling.
 
 ## Lessons (3-5 bullets)
 - Let the product interface carry the narrative: Granola repeatedly embeds recognizable note windows beside short before/during/after copy, so explanation and proof arrive together.

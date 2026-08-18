@@ -12,7 +12,7 @@ status: full-css
 - Spacing rhythm: 4px-based utilities with frequent `6px` micro-gutters (`gap-1.5`); recurring content padding is `20px`, `40px`, and `80px`, while primary buttons use `16px` padding and a `52px` minimum height.
 - Width system: responsive containers cap at `640/768/1024/1280/1536/1800px`; editorial helpers cap at `946px` (narrow) and `1082px` (medium).
 - Layout intent: full-width campaign bands and product grids; collection pages reserve a `213px` desktop filter rail, while product pages use a `64%/36%` media-to-sticky-details split.
-- Signature element: edge-to-edge campaign photography with a bottom-anchored, condensed uppercase headline—typically `54-60px` mobile and `74-90px` desktop—plus stark black/white CTA treatment.
+- Signature element: edge-to-edge campaign photography with a bottom-anchored, condensed uppercase headline - typically `54-60px` mobile and `74-90px` desktop - plus stark black/white CTA treatment.
 
 ## Lessons (3-5 bullets)
 - Let branded packaging and campaign art carry the category color while the commerce shell stays almost entirely black, white, and pale gray; this keeps frequent flavor/collaboration launches from fighting the interface.
