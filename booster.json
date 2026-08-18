@@ -1,0 +1,35 @@
+{
+  "name": "booster",
+  "schema_version": 1,
+  "canonical_home": "~/.claude",
+  "managed_library_paths": [
+    "DESIGN.md",
+    "design/packages",
+    "design/notes",
+    "design/tools",
+    "design/evidence"
+  ],
+  "skills": [
+    "booster",
+    "booster-questions",
+    "booster-audit"
+  ],
+  "required_managed_paths": [
+    "notes/gwern.md",
+    "notes/comparables-2026-08.md",
+    "tools/booster.py",
+    "evidence/bans.json",
+    "evidence/observations.json",
+    "evidence/reference-index.json",
+    "skills/booster/SKILL.md",
+    "skills/booster/booster-skill.json",
+    "skills/booster/agents/openai.yaml",
+    "skills/booster/references/direction-record.md",
+    "skills/booster-questions/SKILL.md",
+    "skills/booster-questions/booster-skill.json",
+    "skills/booster-questions/agents/openai.yaml",
+    "skills/booster-audit/SKILL.md",
+    "skills/booster-audit/booster-skill.json",
+    "skills/booster-audit/agents/openai.yaml"
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Booster Audit"
+  short_description: "Audit rendered UI against Booster gates"
+  default_prompt: "Use $booster-audit to review this interface and report the highest-impact failures."

@@ -1,0 +1,25 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  booster:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate shell syntax
+        run: zsh -n install.sh sync.sh tests/test_install.zsh
+      - name: Validate library and run tests
+        run: |
+          python3 tools/booster.py validate --root .
+          python3 -m unittest discover -s tests -p 'test_*.py'
+          zsh tests/test_install.zsh

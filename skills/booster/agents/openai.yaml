@@ -1,0 +1,4 @@
+interface:
+  display_name: "Booster"
+  short_description: "Build distinctive sites from briefs or business files"
+  default_prompt: "Use $booster to build this website from the available business facts, files, and images."

@@ -1,21 +1,326 @@
 #!/bin/zsh
-# Install Booster from this repo into ~/.claude, where agents read it.
-# Safe to re-run; existing Booster files are updated in place.
-set -e
-cd "$(dirname "$0")"
+# Install Booster's canonical library into ~/.claude and its skills into one or
+# more agent homes. Safe to re-run; only Booster-owned directories are replaced.
+set -euo pipefail
+cd "${0:A:h}"
 
-if [ -f "$HOME/.claude/DESIGN.md" ] && ! grep -q "Design invariants" "$HOME/.claude/DESIGN.md"; then
-  echo "A ~/.claude/DESIGN.md exists that does not look like Booster's."
-  echo "Back it up or remove it, then re-run. Nothing was changed."
+VERSION="0.1.0"
+
+usage() {
+  print -r -- "usage: ./install.sh [--agent claude|codex|universal|all]..."
+  print -r -- ""
+  print -r -- "options:"
+  print -r -- "  --agent TARGET   install skills for TARGET; repeatable (default: claude)"
+  print -r -- "  -h, --help       show this help"
+  print -r -- "  -v, -V, --version  print the Booster version"
+  print -r -- ""
+  print -r -- "example: ./install.sh --agent claude --agent codex"
+}
+
+if (( $# == 1 )) && [[ "$1" == -v || "$1" == -V || "$1" == --version ]]; then
+  echo "$VERSION"
+  exit 0
+fi
+
+typeset -a agents
+agents=()
+while (( $# > 0 )); do
+  case "$1" in
+    --agent)
+      (( $# >= 2 )) || { usage; exit 2; }
+      agents+=("$2")
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      usage
+      exit 2
+      ;;
+  esac
+done
+(( ${#agents[@]} > 0 )) || agents=(claude)
+
+typeset -a install_roots
+install_roots=()
+for agent in "${agents[@]}"; do
+  case "$agent" in
+    claude) install_roots+=("$HOME/.claude/skills") ;;
+    codex) install_roots+=("$HOME/.agents/skills") ;;
+    universal) install_roots+=("$HOME/.agents/skills") ;;
+    all)
+      install_roots+=("$HOME/.claude/skills" "$HOME/.agents/skills")
+      ;;
+    *)
+      echo "unknown agent target: $agent"
+      usage
+      exit 2
+      ;;
+  esac
+done
+
+for dependency in python3 rsync cp mkdir find grep cmp wc tr; do
+  if ! command -v "$dependency" >/dev/null 2>&1; then
+    echo "Missing required command: $dependency. Nothing was changed."
+    exit 1
+  fi
+done
+
+python3 tools/booster.py validate --root .
+
+typeset -A seen_roots
+for root in "${install_roots[@]}"; do
+  [[ -n "${seen_roots[$root]-}" ]] && continue
+  seen_roots[$root]=1
+  if [[ -L "$root" ]] || [[ -e "$root" && ! -d "$root" ]]; then
+    echo "$root is not a regular skill directory. Nothing was changed."
+    exit 1
+  fi
+  for skill in booster booster-questions booster-audit; do
+    target="$root/$skill"
+    if [[ -L "$target" ]]; then
+      echo "$target is a symlink; refusing to replace its destination. Nothing was changed."
+      exit 1
+    fi
+    if [[ -d "$target" ]]; then
+      if [[ -f "$target/booster-skill.json" ]]; then
+        if ! cmp -s "skills/$skill/booster-skill.json" "$target/booster-skill.json"; then
+          echo "$target has an incompatible Booster ownership marker. Nothing was changed."
+          exit 1
+        fi
+      else
+        legacy_skill=0
+        case "$skill" in
+          booster)
+            [[ -f "$target/SKILL.md" ]] && \
+              grep -q "You are routing a brief to the right slice of Kevin's design library" "$target/SKILL.md" && \
+              grep -q "a builder that picks its own range markers derives more and clones less" "$target/SKILL.md" && legacy_skill=1
+            ;;
+          booster-questions)
+            [[ -f "$target/SKILL.md" ]] && \
+              grep -q 'Same destination as `/booster`' "$target/SKILL.md" && \
+              grep -q "Kevin works strictly this way" "$target/SKILL.md" && legacy_skill=1
+            ;;
+          booster-audit)
+            [[ -f "$target/SKILL.md" ]] && \
+              cmp -s "skills/$skill/SKILL.md" "$target/SKILL.md" && legacy_skill=1
+            ;;
+        esac
+        if (( ! legacy_skill )); then
+          echo "$target is not marked as a Booster-owned skill. Nothing was changed."
+          exit 1
+        fi
+      fi
+    elif [[ -e "$target" ]]; then
+      echo "$target exists and is not a directory. Nothing was changed."
+      exit 1
+    fi
+  done
+done
+
+canonical="$HOME/.claude"
+design_root="$canonical/design"
+marker="$design_root/booster.json"
+receipt="$design_root/.booster-installed.json"
+live_observations="$design_root/evidence/observations.json"
+
+if [[ -L "$design_root" ]]; then
+  echo "$design_root is a symlink; refusing to replace its destination. Nothing was changed."
+  exit 1
+fi
+if [[ -L "$canonical/DESIGN.md" ]] || [[ -e "$canonical/DESIGN.md" && ! -f "$canonical/DESIGN.md" ]]; then
+  echo "$canonical/DESIGN.md is not a regular file. Nothing was changed."
+  exit 1
+fi
+if [[ -L "$marker" ]] || [[ -e "$marker" && ! -f "$marker" ]]; then
+  echo "$marker is not a regular file. Nothing was changed."
+  exit 1
+fi
+if [[ -L "$receipt" ]] || [[ -e "$receipt" && ! -f "$receipt" ]]; then
+  echo "$receipt is not a regular install receipt. Nothing was changed."
+  exit 1
+fi
+if [[ -f "$receipt" ]] && ! python3 - "$receipt" <<'PY'
+import json
+import sys
+
+try:
+    value = json.load(open(sys.argv[1], encoding="utf-8"))
+except (OSError, UnicodeError, json.JSONDecodeError):
+    raise SystemExit(1)
+valid = (
+    isinstance(value, dict)
+    and value.get("name") == "booster-installed-library"
+    and type(value.get("schema_version")) is int
+    and value["schema_version"] == 1
+)
+raise SystemExit(0 if valid else 1)
+PY
+then
+  echo "$receipt is invalid. Nothing was changed."
+  exit 1
+fi
+for managed_dir in packages notes tools evidence; do
+  managed_path="$design_root/$managed_dir"
+  if [[ -L "$managed_path" ]] || [[ -e "$managed_path" && ! -d "$managed_path" ]]; then
+    echo "$managed_path is not a regular managed directory. Nothing was changed."
+    exit 1
+  fi
+done
+if [[ -L "$live_observations" ]] || [[ -e "$live_observations" && ! -f "$live_observations" ]]; then
+  echo "$live_observations is not a regular evidence file. Nothing was changed."
   exit 1
 fi
 
-mkdir -p "$HOME/.claude/design" "$HOME/.claude/skills/booster" "$HOME/.claude/skills/booster-questions"
-cp DESIGN.md "$HOME/.claude/DESIGN.md"
-rsync -a packages/ "$HOME/.claude/design/packages/"
-rsync -a notes/ "$HOME/.claude/design/notes/"
-cp skills/booster/SKILL.md "$HOME/.claude/skills/booster/"
-cp skills/booster-questions/SKILL.md "$HOME/.claude/skills/booster-questions/"
+legacy_install=0
+if [[ -f "$canonical/DESIGN.md" && ! -f "$marker" ]]; then
+  if ! grep -q "the mode, excised by name" "$canonical/DESIGN.md" || \
+     ! grep -q "Refs are range markers" "$canonical/DESIGN.md"; then
+    echo "A non-Booster ~/.claude/DESIGN.md already exists."
+    echo "Back it up or choose another home before installing. Nothing was changed."
+    exit 1
+  fi
+  echo "Recognized a legacy Booster install; adding the ownership marker."
+  legacy_install=1
+fi
 
-echo "Installed: DESIGN.md, $(find packages -name '*.md' | wc -l | tr -d ' ') package files, 2 skills."
-echo "Wire it in: add a line to your ~/.claude/CLAUDE.md telling agents to read ~/.claude/DESIGN.md before designing any UI or page."
+if [[ -f "$marker" ]]; then
+  if ! python3 - "$marker" booster.json <<'PY'
+import json
+import sys
+
+try:
+    installed = json.load(open(sys.argv[1], encoding="utf-8"))
+    source = json.load(open(sys.argv[2], encoding="utf-8"))
+except (OSError, UnicodeError, json.JSONDecodeError):
+    raise SystemExit(1)
+compatible = (
+    isinstance(installed, dict)
+    and isinstance(source, dict)
+    and installed.get("name") == source.get("name") == "booster"
+    and type(installed.get("schema_version")) is int
+    and type(source.get("schema_version")) is int
+    and installed.get("schema_version") == source.get("schema_version")
+    and installed.get("canonical_home") == source.get("canonical_home") == "~/.claude"
+    and installed.get("managed_library_paths") == source.get("managed_library_paths")
+)
+raise SystemExit(0 if compatible else 1)
+PY
+  then
+    echo "$marker has an incompatible Booster ownership schema. Nothing was changed."
+    exit 1
+  fi
+fi
+if [[ ! -f "$marker" && $legacy_install -eq 0 && -d "$design_root" ]] && \
+   [[ -n "$(find "$design_root" -mindepth 1 -print -quit 2>/dev/null)" ]]; then
+  echo "$design_root already contains unowned files. Nothing was changed."
+  exit 1
+fi
+if [[ -f "$live_observations" ]]; then
+  if [[ ! -f "$marker" ]]; then
+    echo "A live observation ledger exists without a Booster ownership marker. Nothing was changed."
+    exit 1
+  fi
+  PYTHONDONTWRITEBYTECODE=1 python3 - "$PWD/tools/booster.py" "$design_root" <<'PY'
+import importlib.util
+import pathlib
+import sys
+
+spec = importlib.util.spec_from_file_location("booster_install_check", sys.argv[1])
+if spec is None or spec.loader is None:
+    raise SystemExit(1)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+issues = []
+module._validate_observations(pathlib.Path(sys.argv[2]), issues)
+raise SystemExit(1 if any(item["severity"] == "error" for item in issues) else 0)
+PY
+fi
+
+mkdir -p "$design_root/packages" "$design_root/notes" "$design_root/tools" "$design_root/evidence"
+if (( legacy_install )); then
+  rsync -a --checksum packages/ "$design_root/packages/"
+  rsync -a --checksum notes/ "$design_root/notes/"
+  rsync -a --checksum --exclude '__pycache__/' --exclude '*.pyc' tools/ "$design_root/tools/"
+  rsync -a --checksum --exclude 'observations.json' --exclude '*.lock' evidence/ "$design_root/evidence/"
+else
+  rsync -a --checksum --delete packages/ "$design_root/packages/"
+  rsync -a --checksum --delete notes/ "$design_root/notes/"
+  rsync -a --checksum --delete --delete-excluded --exclude '__pycache__/' --exclude '*.pyc' tools/ "$design_root/tools/"
+  rsync -a --checksum --delete --exclude 'observations.json' --exclude '*.lock' evidence/ "$design_root/evidence/"
+fi
+[[ -f "$live_observations" ]] || cp evidence/observations.json "$live_observations"
+
+seen_roots=()
+for root in "${install_roots[@]}"; do
+  [[ -n "${seen_roots[$root]-}" ]] && continue
+  seen_roots[$root]=1
+  mkdir -p "$root"
+  for skill in booster booster-questions booster-audit; do
+    target="$root/$skill"
+    mkdir -p "$target"
+    rsync -a --checksum --delete "skills/$skill/" "$target/"
+  done
+done
+
+# Canonical single files use temp+replace so an existing hard link cannot
+# transmit writes outside the Booster install.
+python3 - DESIGN.md "$canonical/DESIGN.md" booster.json "$marker" "$receipt" <<'PY'
+import json
+import os
+import shutil
+import stat
+import sys
+
+
+def atomic_copy(source, target):
+    temporary = f"{target}.booster-install.{os.getpid()}"
+    descriptor = None
+    try:
+        flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL
+        if hasattr(os, "O_NOFOLLOW"):
+            flags |= os.O_NOFOLLOW
+        descriptor = os.open(temporary, flags, 0o600)
+        with os.fdopen(descriptor, "wb") as output, open(source, "rb") as input_file:
+            descriptor = None
+            shutil.copyfileobj(input_file, output)
+            output.flush()
+            os.fsync(output.fileno())
+        os.chmod(temporary, stat.S_IMODE(os.stat(source).st_mode))
+        os.replace(temporary, target)
+    finally:
+        if descriptor is not None:
+            os.close(descriptor)
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+
+
+atomic_copy(sys.argv[1], sys.argv[2])
+atomic_copy(sys.argv[3], sys.argv[4])
+receipt_path = sys.argv[5]
+temporary = f"{receipt_path}.booster-install.{os.getpid()}"
+try:
+    with open(temporary, "x", encoding="utf-8") as handle:
+        json.dump({"name": "booster-installed-library", "schema_version": 1}, handle, indent=2)
+        handle.write("\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+    os.replace(temporary, receipt_path)
+finally:
+    try:
+        os.unlink(temporary)
+    except FileNotFoundError:
+        pass
+PY
+
+python3 tools/booster.py observations-merge \
+  --root "$design_root" \
+  --from "$PWD/evidence/observations.json" >/dev/null
+
+echo "Installed: DESIGN.md, $(find packages -name '*.md' | wc -l | tr -d ' ') package files, tools, evidence, and 3 skills."
+echo "Wire it in: tell each agent to read ~/.claude/DESIGN.md before designing any UI or page."
+echo "Verify the installed library: python3 ~/.claude/design/tools/booster.py validate"

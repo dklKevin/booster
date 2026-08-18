@@ -1,0 +1,4 @@
+interface:
+  display_name: "Booster Questions"
+  short_description: "Resolve missing site context before building"
+  default_prompt: "Use $booster-questions to resolve the few missing facts that materially affect this website, then build it."
