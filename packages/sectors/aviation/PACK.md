@@ -29,6 +29,10 @@ Refs teach how to think, never what to build.
 - Image contrast and mobile behavior are trust issues: gradients, overlays, constrained copy measures, reduced hero heights, and linear fallbacks must preserve legibility and access.
 - The excellence set proves aviation need not default to corporate blue: disciplined monochrome, warm cream and navy, controlled violet, or a single yellow accent can remain credible when each color has a fixed role.
 - Cinematic scale earns attention only when paired with technical taxonomy, live activity, configuration data, bilingual clarity, or a direct planning task.
+- **Operational surface:** put booking or flight planning, check-in, status, fares, fleet or configuration facts, and passenger rights on the owned site. VistaJet places Plan a flight under the promise; STARLUX keeps booking and loyalty in the same shell as editorial interiors.
+- **Operational consistency:** one current source for routes, cabin names, fares, and schedules. Cinematic aircraft footage cannot substitute for a working planning task.
+- **Local access:** name the airports, terminals, and lounges that actually apply, and keep bilingual wayfinding when the airline sells in more than one writing system, as Riyadh Air and STARLUX do.
+- **Photography:** treat aircraft, cabin, and destination images as product evidence with a job, not interchangeable lifestyle filler under a dark overlay.
 
 ## Range map
 

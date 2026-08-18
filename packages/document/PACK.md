@@ -1,7 +1,7 @@
 # Document package
 
 For research docs, study guides, reviews, long-form reading. Most of our artifacts live here.
-Load with `~/.claude/DESIGN.md` plus 2-3 files from `refs/` chosen for the brief. Never load the whole refs folder.
+Load with the installed DESIGN.md plus 2-3 files from `refs/` chosen for the brief. Never load the whole refs folder.
 Refs teach how to think, never what to build.
 Deeper background: `../../notes/gwern.md`.
 

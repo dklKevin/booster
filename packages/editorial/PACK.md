@@ -1,7 +1,7 @@
 # Editorial package
 
 For showcase and presentation pages built on ideas: landing pages, pitch docs, book-like pages, anything meant to impress with content rather than a physical object.
-Load with `~/.claude/DESIGN.md` plus files from `refs/` chosen for the brief. Never load the whole refs folder.
+Load with the installed DESIGN.md plus files from `refs/` chosen for the brief. Never load the whole refs folder.
 Refs teach how to think, never what to build.
 
 ## Range map

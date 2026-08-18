@@ -1,7 +1,7 @@
 # Interface package
 
 For product and tool UI: apps, dashboards, anything with controls.
-Load with `~/.claude/DESIGN.md` plus files from `refs/` chosen for the brief. Never load the whole refs folder.
+Load with the installed DESIGN.md plus files from `refs/` chosen for the brief. Never load the whole refs folder.
 Refs teach how to think, never what to build.
 
 ## Range map

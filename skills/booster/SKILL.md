@@ -51,29 +51,39 @@ Gather only what identifies the subject, audience, job, and existing visual lang
 
 Do not deep-read the codebase; this is a routing decision, not a review. A minute of scanning is the budget.
 
+Resolve the Booster library in this order, then use that root for DESIGN.md, packages, and `tools/booster.py`:
+1. `$BOOSTER_HOME` if it contains `tools/booster.py` or `DESIGN.md`
+2. `~/.claude/design` if it contains `tools/booster.py`
+3. `~/.grok/design` if it contains `tools/booster.py`
+4. the current checkout when `DESIGN.md` and `tools/booster.py` are present
+
 ## Step 2: Pick the form package
 
-One of `~/.claude/design/packages/`: interface (tool/app UI with controls), editorial (idea-led presentation and landing pages), document (long-form reading), personal (the repository's identity/portfolio style), gallery (imagery-first, interface recedes), showcase (a physical object that must be desired).
+One of `<library-root>/packages/`: interface (tool/app UI with controls), editorial (idea-led presentation and landing pages), document (long-form reading), personal (identity and portfolio pages), gallery (imagery-first, interface recedes), showcase (a physical object that must be desired).
 Pick by the page's job, not its industry.
 
 ## Step 3: Pick the sector package, if one applies
 
-`ls ~/.claude/design/packages/sectors/` for the current list; match the brief's industry.
+List `<library-root>/packages/sectors/` for the current list; match the brief's industry.
 Many briefs have no sector: that is a normal outcome, not a failure. Never force a sector fit.
 
 ## Step 4: Choose refs
 
+Name the form and sector first. Search is retrieval after that decision, never the decision itself.
 Read the chosen packages' PACK.md range maps, then pick refs that SPAN a range relevant to the brief (two different poles beat two similar sites).
 Cross-package borrowing is legitimate: a hospital dashboard might take one interface ref and one hospital ref.
 Prefer offering FOUR pole-spanning candidate paths from the PACK maps or search index, with the instruction to choose two and name the choices. Treat those four as a shortlist, not four loaded references: open no more than 2-3 ref files total. A builder that picks its own range markers derives more and clones less.
 Rotate refs between builds on the same subject; feeding the same trio every time re-converges the results.
 
-When the search tool is installed, use it as a shortlist generator instead of loading the catalog:
+If no sector applies, set sector to none and do not search the catalog. Pick poles from the form PACK.md range map.
+
+If a sector applies and the search tool is installed, search only with both `--form` and `--sector` set:
 
 ```sh
-python3 ~/.claude/design/tools/booster.py search "<brief terms>" --form <form> [--sector <sector>] --limit 4
+python3 <library-root>/tools/booster.py search "<brief terms>" --form <form> --sector <sector> --limit 4
 ```
 
+If search returns empty, read the `reason` field and open the chosen PACK.md range map. Never retry unfiltered. Never broaden the query to force a hit.
 Treat ranking as retrieval evidence, not a design decision. Read the returned PACK files, then open only the 2-3 candidate refs most relevant to the brief before recommending the shortlist. Never open all four merely because search returned them. Reject a shortlist whose candidates share the same ground hue, display voice, anchor accent, or page anatomy.
 
 ## Step 5: Deliver the recommendation
@@ -91,7 +101,7 @@ Refs (offer these; builder chooses two and names them):
 - <path> - [the pole it covers for this brief]
 - <path> - [the pole it covers for this brief]
 
-Reminders: DESIGN.md ban list + hard floors apply; sketch three directions before committing;
+Reminders: DESIGN.md ban list + hard floors apply; commit one chosen direction;
 all four gates are live (uniqueness including page outline, no cloning, category legibility,
 believability: would this organization actually ship it?).
 ```
@@ -104,9 +114,12 @@ If the scan leaves you genuinely unsure between two form packs or two sectors, s
 
 ## Step 6: Derive when the build is proceeding
 
-Read [references/direction-record.md](references/direction-record.md) and produce its three-direction record before substantial implementation. Keep it in the response for routing-only work. Persist it under the project's existing design-doc location only when the user has authorized implementation or explicitly asks to save it.
+Default path: choose one direction, give it a compact ASCII wireframe, then build. Screenshot mobile and laptop, then stop unless the user asks for `booster-audit`.
+Keep three-direction thinking in your head. Persist one chosen direction, not three full records, unless the user invoked `booster-questions` or the directions imply different businesses.
 
-Each direction needs a compact ASCII wireframe. Run both rejection checks before selecting:
+When three directions are required, read [references/direction-record.md](references/direction-record.md) and produce that record before substantial implementation. Otherwise record subject grounding, palette roles, type roles, layout intent, imagery plan, and one signature element for the chosen direction only.
+
+Run both rejection checks before selecting:
 
 1. Family collision: discard directions that share a ground hue, display voice, anchor accent, or page anatomy.
 2. Counterfactual: discard any direction that a similar prompt for a different subject would also produce.

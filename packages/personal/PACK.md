@@ -1,7 +1,7 @@
 # Personal package
 
-For Kevin's website style, portfolio, identity pages. Feeds the portfolio project.
-Load with `~/.claude/DESIGN.md` plus 2-3 files from `refs/` chosen for the brief. Never load the whole refs folder.
+For identity, portfolio, and personal-site pages.
+Load with the installed DESIGN.md plus 2-3 files from `refs/` chosen for the brief. Never load the whole refs folder.
 Refs teach how to think, never what to build.
 
 ## Range map

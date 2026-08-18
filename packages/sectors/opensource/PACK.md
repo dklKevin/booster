@@ -30,6 +30,9 @@ Refs teach how to think, never what to build.
 - Excellence can be cinematic without becoming corporate: Blender lets community artwork persuade, Ghost lets product footage carry proof, and Astro and Vite place a first successful command near the proposition.
 - Distinctiveness is strongest when the project's own abstraction becomes the visual system, as Tailwind's utility labels, Laravel's drafting lines, htmx's code-shaped wordmark, and Svelte's machine demonstrate.
 - Credibility survives personality when roles stay disciplined, as Gleam's mascot and pink community cues show beside real code and a consistent technical rail.
+- **Operational surface:** keep a first successful command, current docs, releases, license, security, contributing, and the repository on the owned site. Astro and Vite place that command near the proposition; Blender lets project output persuade.
+- **Operational consistency:** version badges, install snippets, and GitHub releases must agree. Sponsor mosaics and foundation counts cannot replace a working setup path.
+- **Photography:** use the project's own output, product footage, or runnable code. Conference photos and six-column logo tiles are affiliation theater.
 
 ## Range map
 

@@ -29,6 +29,9 @@ Refs teach how to think, never what to build.
 - Use hierarchy, reading measure, and a stable grid to carry authority: Asimov narrows articles to `60rem`, Ginkgo caps large copy at `64ch`, and the stronger systems keep expressive media inside disciplined content frames.
 - One specific narrative device can create distinction - a molecular visual, indexed notebook grammar, organic squiggle, sticky preparedness sequence, or synchronized application carousel - while the rest of the system stays quiet and consistent.
 - Scale and affiliation are credible when contextualized by named programmes, candidates, partners, publications, or methods; badges, decorative maps, and testimonial celebrity are secondary signals.
+- **Operational surface:** keep named reports, papers with authors and dates, methods or product interfaces, and programme pages on the owned site. Latch puts paper metadata next to the claim; Benchling keeps product proof inside a bounded working surface.
+- **Operational consistency:** citations, trial or programme names, and dates must resolve to a readable document. University marks and `.gov` chrome cannot replace the paper.
+- **Photography:** keep molecular, organism, or lab imagery inside a reading frame with a caption job. Crisis-blue portals and decorative maps are the mode.
 
 ## Range map
 

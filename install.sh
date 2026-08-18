@@ -1,13 +1,13 @@
 #!/bin/zsh
-# Install Booster's canonical library into ~/.claude and its skills into one or
-# more agent homes. Safe to re-run; only Booster-owned directories are replaced.
+# Install Booster's library into ~/.claude or ~/.grok and its skills into one
+# or more agent homes. Safe to re-run; only Booster-owned directories are replaced.
 set -euo pipefail
 cd "${0:A:h}"
 
 VERSION="0.1.0"
 
 usage() {
-  print -r -- "usage: ./install.sh [--agent claude|codex|universal|all]..."
+  print -r -- "usage: ./install.sh [--agent claude|codex|grok|universal|all]..."
   print -r -- ""
   print -r -- "options:"
   print -r -- "  --agent TARGET   install skills for TARGET; repeatable (default: claude)"
@@ -49,9 +49,10 @@ for agent in "${agents[@]}"; do
   case "$agent" in
     claude) install_roots+=("$HOME/.claude/skills") ;;
     codex) install_roots+=("$HOME/.agents/skills") ;;
+    grok) install_roots+=("$HOME/.grok/skills") ;;
     universal) install_roots+=("$HOME/.agents/skills") ;;
     all)
-      install_roots+=("$HOME/.claude/skills" "$HOME/.agents/skills")
+      install_roots+=("$HOME/.claude/skills" "$HOME/.grok/skills" "$HOME/.agents/skills")
       ;;
     *)
       echo "unknown agent target: $agent"
@@ -120,7 +121,32 @@ for root in "${install_roots[@]}"; do
   done
 done
 
-canonical="$HOME/.claude"
+wants_claude=0
+wants_grok=0
+for agent in "${agents[@]}"; do
+  case "$agent" in
+    claude) wants_claude=1 ;;
+    grok) wants_grok=1 ;;
+    all)
+      wants_claude=1
+      wants_grok=1
+      ;;
+  esac
+done
+if [[ -n "${BOOSTER_HOME:-}" ]]; then
+  canonical="${BOOSTER_HOME/#\~/$HOME}"
+elif (( wants_claude == 0 && wants_grok == 1 )); then
+  canonical="$HOME/.grok"
+else
+  canonical="$HOME/.claude"
+fi
+if [[ "$canonical" == "$HOME/.grok" ]]; then
+  home_label="~/.grok"
+elif [[ "$canonical" == "$HOME/.claude" ]]; then
+  home_label="~/.claude"
+else
+  home_label="$canonical"
+fi
 design_root="$canonical/design"
 marker="$design_root/booster.json"
 receipt="$design_root/.booster-installed.json"
@@ -178,7 +204,7 @@ legacy_install=0
 if [[ -f "$canonical/DESIGN.md" && ! -f "$marker" ]]; then
   if ! grep -q "the mode, excised by name" "$canonical/DESIGN.md" || \
      ! grep -q "Refs are range markers" "$canonical/DESIGN.md"; then
-    echo "A non-Booster ~/.claude/DESIGN.md already exists."
+    echo "A non-Booster $canonical/DESIGN.md already exists."
     echo "Back it up or choose another home before installing. Nothing was changed."
     exit 1
   fi
@@ -203,7 +229,12 @@ compatible = (
     and type(installed.get("schema_version")) is int
     and type(source.get("schema_version")) is int
     and installed.get("schema_version") == source.get("schema_version")
-    and installed.get("canonical_home") == source.get("canonical_home") == "~/.claude"
+    and isinstance(installed.get("canonical_home"), str)
+    and installed["canonical_home"].strip() != ""
+    and (
+        installed["canonical_home"].startswith("~/")
+        or installed["canonical_home"].startswith("/")
+    )
     and installed.get("managed_library_paths") == source.get("managed_library_paths")
 )
 raise SystemExit(0 if compatible else 1)
@@ -267,7 +298,7 @@ done
 
 # Canonical single files use temp+replace so an existing hard link cannot
 # transmit writes outside the Booster install.
-python3 - DESIGN.md "$canonical/DESIGN.md" booster.json "$marker" "$receipt" <<'PY'
+python3 - DESIGN.md "$canonical/DESIGN.md" booster.json "$marker" "$receipt" "$home_label" <<'PY'
 import json
 import os
 import shutil
@@ -299,22 +330,26 @@ def atomic_copy(source, target):
             pass
 
 
-atomic_copy(sys.argv[1], sys.argv[2])
-atomic_copy(sys.argv[3], sys.argv[4])
-receipt_path = sys.argv[5]
-temporary = f"{receipt_path}.booster-install.{os.getpid()}"
-try:
+def atomic_write_json(target, value):
+    temporary = f"{target}.booster-install.{os.getpid()}"
     with open(temporary, "x", encoding="utf-8") as handle:
-        json.dump({"name": "booster-installed-library", "schema_version": 1}, handle, indent=2)
+        json.dump(value, handle, indent=2)
         handle.write("\n")
         handle.flush()
         os.fsync(handle.fileno())
-    os.replace(temporary, receipt_path)
-finally:
-    try:
-        os.unlink(temporary)
-    except FileNotFoundError:
-        pass
+    os.chmod(temporary, stat.S_IMODE(os.stat(sys.argv[3]).st_mode))
+    os.replace(temporary, target)
+
+
+atomic_copy(sys.argv[1], sys.argv[2])
+marker = json.loads(open(sys.argv[3], encoding="utf-8").read())
+marker["canonical_home"] = sys.argv[6]
+atomic_write_json(sys.argv[4], marker)
+receipt_path = sys.argv[5]
+atomic_write_json(
+    receipt_path,
+    {"name": "booster-installed-library", "schema_version": 1},
+)
 PY
 
 python3 tools/booster.py observations-merge \
@@ -322,5 +357,6 @@ python3 tools/booster.py observations-merge \
   --from "$PWD/evidence/observations.json" >/dev/null
 
 echo "Installed: DESIGN.md, $(find packages -name '*.md' | wc -l | tr -d ' ') package files, tools, evidence, and 3 skills."
-echo "Wire it in: tell each agent to read ~/.claude/DESIGN.md before designing any UI or page."
-echo "Verify the installed library: python3 ~/.claude/design/tools/booster.py validate"
+echo "Library home: $canonical"
+echo "Wire it in: tell each agent to read $canonical/DESIGN.md before designing any UI or page."
+echo "Verify the installed library: python3 $design_root/tools/booster.py validate"

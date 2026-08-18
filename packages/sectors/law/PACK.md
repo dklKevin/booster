@@ -30,6 +30,9 @@ Refs teach how to think, never what to build.
 - Excellence can feel expressive without losing rigor: Cooley uses editorial scale, Fenwick makes case proof visual, Freshfields repeats one construction motif, and Quinn Emanuel turns litigation confidence into a direct sequence from statement to victories.
 - Strong systems assign accents distinct roles and preserve sober reading grounds, as shown by Goodwin's orange actions and blue structure, Quinn Emanuel's cyan structure and lime state cues, and Freshfields' blue interaction states on black and warm off-white.
 - Credibility survives beyond the traditional serif template, because Fenwick, Orrick, and Quinn Emanuel build hierarchy with disciplined sans families while WSGR uses a precise sans display face with a readable serif body.
+- **Operational surface:** keep people, practices, offices, current matters or insights, and a usable contact path on the owned site. Rankings and deal tickers cannot replace a way to find the right lawyer.
+- **Operational consistency:** one current roster, office list, and matter record. A prestige carousel of dated “Firm Advises” headlines with stale attorney pages fails the visitor who needs someone now.
+- **Photography:** skip generic glass towers and darkened deal stills chosen to hold overlay type. Fenwick and Quinn Emanuel make case proof visual; architecture stock does not.
 
 ## Range map
 

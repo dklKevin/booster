@@ -29,6 +29,9 @@ Refs teach how to think, never what to build.
 - Credible distinctiveness is structural: Genentech's wordmark mask, insitro's repeated hexagons, and Isomorphic Labs' gridded molecular interfaces are systems, not decoration.
 - Lilly's editorial serif, Moderna's ordered collage, and Recursion's lab footage prove that emotional or cinematic range can retain information discipline.
 - Brand color should orient meaning through stable action, content, and semantic roles rather than flood modules.
+- **Operational surface:** keep pipeline or trial access, product information, results, patient resources, safety reporting, and disclosures on the owned site. Dated evidence is the register; CEO reassurance is not.
+- **Operational consistency:** indication language, regional availability, and safety copy must match the label and the local page. Longevity slogans that drift from the prescribing information fail the sector.
+- **Photography:** Lilly, Moderna, and Recursion show that people, collage, and lab footage can stay informational. Wellness stock detached from a named product or trial is decoration.
 
 ## Range map
 

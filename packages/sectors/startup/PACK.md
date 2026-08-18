@@ -29,6 +29,9 @@ Refs teach how to think, never what to build.
 - One structural brand move is more credible than ambient novelty: Cash App owns #00E013 as a hero field, Clay concentrates its contraption in the opening, Mercury concentrates motion in a sticky hero, and incident.io reserves #f25533 for the narrative and conversion spine.
 - Product breadth should become navigable or demonstrable, as Mercury's labeled banking flows and Attio's technical CRM canvas show, rather than dissolving into a generic six-card feature inventory.
 - Excellence proves that startup clarity can range from Amie's quiet 1024px product rail to Cash App's full-viewport color field without surrendering legibility, responsive hierarchy, or evidence.
+- **Operational surface:** keep a playable or faithful product demonstration, pricing, docs or security, signup, and status on the owned site. Mercury puts conversion inside labeled banking flows; Attio makes the CRM canvas the evidence.
+- **Operational consistency:** pricing, plan names, and compliance claims on the marketing site must match the product and the legal pages. Logo walls and AI promises cannot replace that match.
+- **Photography:** real interface behavior, data grammar, or a playable demo. Decorative mockups of generic dashboards are the sector's fastest tell.
 
 ## Range map
 

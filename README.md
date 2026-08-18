@@ -69,7 +69,7 @@ Refs are distilled from inspected site evidence and carry their source status an
 In Codex:
 
 ```text
-$booster Build a website for Seoul Garden BBQ, a family-owned Korean barbecue restaurant in Queens.
+$booster Build a website for a family-owned Korean hair salon in Queens.
 ```
 
 In Claude, use `/booster` instead. If no project is open, Booster asks whether to use an existing business folder or create a new one; the new folder name may be left blank. If no photos exist, it offers image generation only when the active agent provides it, otherwise it offers an imagery-light build, exact image spaces plus a saved generation brief, or a pause for uploads.
@@ -82,8 +82,8 @@ The default user experience is a one- or two-shot website build. Routing, search
 
 1. **Establish the workspace.** If a project is open, Booster uses it. Otherwise it asks whether the user has an existing business folder or wants a new website folder. A new folder name is optional: Booster derives it from the business name when possible and uses a clearly named draft when neither is known. It scans documents, menus, logos, copy, code, and images before asking for information already on disk.
 2. **Resolve imagery.** Existing business photography wins. When no usable images exist and the active agent actually provides the `imagegen` capability, Booster offers an art-directed generated image set, art-directed placeholders, or an imagery-light direction. When generation is unavailable, Booster says so plainly and offers an intentionally complete imagery-light build, exact image spaces plus a saved generation brief for later handoff, or a pause for uploads. The missing tool never blocks the first shot or pressures the user to switch agents. Generated assets are project-local concept imagery and never masquerade as documentary evidence of real premises, people, products, dishes, credentials, or events.
-3. **Route.** The `booster` skill (`$booster` in Codex, `/booster` in Claude) picks one form pack, one sector pack if the brief belongs to an industry, and four candidate refs spanning different poles. Search ranks the shortlist; a diversity pass prevents ranking from becoming a preset. For an implementation request, the agent chooses and names two, opens no more than 2-3 ref files total, and continues without making the user operate the routing machinery.
-4. **Derive.** Ground the design in the subject, record three materially different directions with compact ASCII wireframes, and discard family collisions and counterfactual-generic plans. Ask the user to choose only when the directions imply materially different business outcomes.
+3. **Route.** The `booster` skill (`$booster` in Codex, `/booster` in Claude) picks one form pack, then one sector pack if the brief belongs to a covered industry. Search runs only after both are named, and only inside that slice. If no sector applies, search is skipped and refs come from the form range map. A diversity pass prevents ranking from becoming a preset. For an implementation request, the agent chooses and names two, opens no more than 2-3 ref files total, and continues without making the user operate the routing machinery.
+4. **Derive.** Ground the design in the subject and commit one chosen direction with a compact ASCII wireframe. ASCII wireframes for two alternate families stay in reserve; persist three full records only when the directions imply different businesses or the user asked for an interview. Discard family collisions and counterfactual-generic plans.
 5. **Gate.** Four checks before building: could this plan ship for a different subject; does it clone a ref; can a visitor tell what kind of organization this is; would the organization actually ship it.
 6. **Judge.** The `booster-audit` skill (`$booster-audit` in Codex, `/booster-audit` in Claude) reviews mobile, laptop, and wide screenshots plus applicable states and interactions. It separates hard-floor failures from aesthetic mode findings and reports severity, confidence, locations, and bounded corrections. Green builds are not evidence; the rendered result is.
 
@@ -114,8 +114,8 @@ The full list and stable IDs live in [DESIGN.md](DESIGN.md). Evidence status liv
 ```sh
 python3 tools/booster.py validate --root .
 python3 tools/booster.py index --root . --write evidence/reference-index.json
-python3 tools/booster.py search "family-owned Korean barbecue restaurant" --form gallery --limit 4
-python3 tools/booster.py observe --pattern "generic centered restaurant hero" --subject "Korean barbecue website" --model "model-name" --artifact "path-or-url" --note "user's exact rejection"
+python3 tools/booster.py search "Korean hair salon" --form editorial --sector hair-salon --limit 4
+python3 tools/booster.py observe --pattern "generic centered salon hero" --subject "Korean hair salon website" --model "model-name" --artifact "path-or-url" --note "user's exact rejection"
 python3 tools/booster.py candidates --min-count 2
 ```
 
@@ -130,17 +130,20 @@ git clone https://github.com/dklKevin/booster && cd booster
 ./install.sh
 ```
 
-The default installs the canonical library and skills for Claude. Other agent skill homes can share the same canonical library:
+The default installs the library and skills for Claude. Other agent skill homes can share one library:
 
 ```sh
 ./install.sh --agent codex
-./install.sh --agent claude --agent codex
+./install.sh --agent grok
+./install.sh --agent claude --agent grok
 ./install.sh --agent universal
 ```
 
-Codex and `universal` target the current user skill directory, `~/.agents/skills`; `all` installs both Claude and universal skill locations. The installer validates the repository first, recognizes only Booster-owned or legacy Booster files, replaces stale files inside Booster-owned directories, and leaves agent instruction files untouched.
+Codex and `universal` target `~/.agents/skills`. Grok targets `~/.grok/skills`. `all` installs Claude, Grok, and universal skill locations.
+If Claude is among the targets, the library lands in `~/.claude`. A Grok-only install lands the library in `~/.grok` and does not touch `~/.claude`. Override either with `BOOSTER_HOME`.
+The installer validates the repository first, recognizes only Booster-owned or legacy Booster files, replaces stale files inside Booster-owned directories, and leaves agent instruction files untouched.
 Reinstalling merges repository observations into the live evidence ledger and preserves live-only observations instead of resetting them.
-Wire it in with one line in the relevant `CLAUDE.md` or `AGENTS.md` telling the agent to read `~/.claude/DESIGN.md` before designing any UI or page.
+Wire it in by telling the agent to read the installed `DESIGN.md` before designing any UI or page.
 
 ## Sync (maintainer direction)
 

@@ -43,7 +43,7 @@ If a choice would appear unchanged in a hundred other AI-generated pages, it is 
 
 ## Design packages
 
-Reference material lives in `~/.claude/design/packages/`, one package per situation, each holding a `PACK.md` (cross-site lessons) and a `refs/` folder (one distilled site per file).
+Reference material lives in the installed design library (`~/.claude/design/packages/` or `~/.grok/design/packages/`), one package per situation, each holding a `PACK.md` (cross-site lessons) and a `refs/` folder (one distilled site per file).
 
 - `packages/interface`: product and tool UI, apps, dashboards, anything with controls.
 - `packages/editorial`: presentation pages built on ideas; landing pages, pitch docs, book-like pages.
