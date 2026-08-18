@@ -28,6 +28,9 @@ Shipping, secure checkout, review totals, and subscription savings appear as the
 - Use direct, calm explanatory copy for facts and controls; reserve forceful condensed or ownable display type for short claims, product names, and campaign ideas.
 - Keep evidence inside the same grids, cards, accordions, and split panels as commerce so traceability feels integral rather than like a detached compliance report.
 - Excellence can range from cinematic product science to warm editorial rigor, but it consistently uses a stable neutral shell, selective accents, disciplined whitespace, and distinct storytelling and transactional modes.
+- **Operational surface:** keep dose or label facts, testing or standards, product detail, cart or subscription, and required disclaimers on the owned site. Thorne converts quality into named proof pillars; Ritual builds traceability into the same grid as products.
+- **Operational consistency:** claims, doses, and certifications on the campaign must match the label and the PDP. Gym-hero energy cannot replace a readable facts panel.
+- **Photography:** give campaign lifestyle and isolated product renders distinct jobs. Fruit-splash and powder-pour loops with no label evidence are the mode.
 
 ## Range map
 

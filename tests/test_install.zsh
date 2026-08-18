@@ -296,4 +296,19 @@ if HOME="$test_home" zsh sync.sh --dry-run >/dev/null 2>&1; then
   exit 1
 fi
 
+grok_home="$test_root/grok-home"
+mkdir -p "$grok_home"
+HOME="$grok_home" zsh install.sh --agent grok >/dev/null
+test -f "$grok_home/.grok/DESIGN.md"
+test -f "$grok_home/.grok/design/tools/booster.py"
+test -f "$grok_home/.grok/skills/booster/SKILL.md"
+test ! -e "$grok_home/.claude"
+python3 - "$grok_home/.grok/design/booster.json" <<'PY'
+import json
+import sys
+
+marker = json.load(open(sys.argv[1], encoding="utf-8"))
+assert marker["canonical_home"] == "~/.grok", marker
+PY
+
 echo "install and sync safety checks passed"

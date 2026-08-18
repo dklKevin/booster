@@ -30,6 +30,9 @@ Refs teach how to think, never what to build.
 - Use plain task labels such as "Search," "Cart," "Repair Help," "Ingredients," "Instructions," and "Add to Cart" so voice never obstructs wayfinding.
 - The audience expects compact, direct, informed language with prices, availability, fulfillment, and support visible at the point of decision.
 - Excellence proves retail can lead with maker culture, education, editorial inspiration, expert service, or problem-solving while preserving operational commerce and template-specific information architecture.
+- **Operational surface:** keep search, taxonomy, product detail with price and availability, cart, fulfillment, and support or repair help on the owned site. Adafruit, McMaster-Carr, and Sweetwater make retrieval and evaluation load-bearing.
+- **Operational consistency:** one current source for price, stock, shipping, and specs. A campaign price that disagrees with the product page is a broken store.
+- **Photography:** give packshots, technical media, and lifestyle distinct jobs. King Arthur treats food photography as structure; isolated packshots in the same rounded card as deal banners is the mode.
 
 ## Range map
 

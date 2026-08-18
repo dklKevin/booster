@@ -263,6 +263,7 @@ Return to derivation when a correction would collapse the work into a familiar m
 ## Register
 
 - Put care tasks first.
+- **Operational surface:** keep scheduling, records access, and after-hours guidance on the owned site.
 
 ## Range map
 
@@ -367,6 +368,7 @@ class BoosterTests(unittest.TestCase):
             form="interface",
             sector="hospital",
             limit=4,
+            min_score=1,
         )
 
         self.assertEqual(len(results), 4)
@@ -381,6 +383,64 @@ class BoosterTests(unittest.TestCase):
         results = booster.search_references(root, "zzzzzzzzzzzz", limit=4)
 
         self.assertEqual(results, [])
+
+    def test_search_refuses_uncovered_industry_without_a_sector(self) -> None:
+        temporary, root = self.make_repo()
+        self.addCleanup(temporary.cleanup)
+
+        results = booster.search_references(
+            root, "family-owned Korean barbecue restaurant", limit=4
+        )
+
+        self.assertEqual(results, [])
+        diagnosis = booster.diagnose_empty_search(
+            root, "family-owned Korean barbecue restaurant"
+        )
+        self.assertEqual(diagnosis["reason"], "no-sector")
+        self.assertEqual(diagnosis["uncovered"], "food/hospitality")
+        help_text = " ".join(booster.empty_search_help(diagnosis))
+        self.assertIn("Never retry unfiltered", help_text)
+        self.assertNotIn("broader brief", help_text)
+
+    def test_search_names_filter_too_narrow_instead_of_broadening(self) -> None:
+        temporary, root = self.make_repo()
+        self.addCleanup(temporary.cleanup)
+
+        results = booster.search_references(
+            root, "patient scheduling", form="interface", limit=4
+        )
+
+        self.assertEqual(results, [])
+        diagnosis = booster.diagnose_empty_search(
+            root, "patient scheduling", form="interface"
+        )
+        self.assertEqual(diagnosis["reason"], "filter-too-narrow")
+        help_text = " ".join(booster.empty_search_help(diagnosis))
+        self.assertIn("Never retry unfiltered", help_text)
+        self.assertNotIn("broader brief", help_text)
+
+    def test_empty_search_cli_does_not_suggest_broadening(self) -> None:
+        temporary, root = self.make_repo()
+        self.addCleanup(temporary.cleanup)
+        output = io.StringIO()
+        with redirect_stdout(output):
+            result = booster.main(
+                [
+                    "search",
+                    "family-owned Korean barbecue restaurant",
+                    "--form",
+                    "interface",
+                    "--root",
+                    str(root),
+                    "--json",
+                ]
+            )
+
+        self.assertEqual(result, 0)
+        payload = json.loads(output.getvalue())
+        self.assertEqual(payload["count"], 0)
+        self.assertEqual(payload["empty"]["reason"], "no-sector")
+        self.assertNotIn("broader brief", json.dumps(payload))
 
     def test_validation_accepts_complete_repository(self) -> None:
         temporary, root = self.make_repo()
@@ -1248,6 +1308,44 @@ status: full-css
         self.assertEqual(candidates[0]["independent_count"], 2)
         self.assertEqual(candidates[0]["observation_count"], 3)
         self.assertEqual(candidates[0]["artifacts"], ["build-a", "build-b"])
+
+
+class LiveCatalogTests(unittest.TestCase):
+    root = Path(__file__).resolve().parents[1]
+
+    def test_documented_readme_search_returns_covered_refs(self) -> None:
+        readme = (self.root / "README.md").read_text(encoding="utf-8")
+        self.assertNotIn("barbecue", readme.lower())
+        self.assertNotIn("seoul garden", readme.lower())
+        match = re.search(
+            r'python3 tools/booster.py search "([^"]+)" --form (\S+) --sector (\S+) --limit 4',
+            readme,
+        )
+        self.assertIsNotNone(match)
+        assert match is not None
+        query, form, sector = match.group(1), match.group(2), match.group(3)
+        results = booster.search_references(
+            self.root, query, form=form, sector=sector, limit=4
+        )
+        self.assertEqual(len(results), 4)
+        packages = {item["package"] for item in results}
+        self.assertTrue(packages <= {form, sector})
+        self.assertIn(sector, packages)
+
+    def test_previous_barbecue_demo_fails_closed(self) -> None:
+        results = booster.search_references(
+            self.root,
+            "family-owned Korean barbecue restaurant",
+            form="gallery",
+            limit=4,
+        )
+        self.assertEqual(results, [])
+        diagnosis = booster.diagnose_empty_search(
+            self.root,
+            "family-owned Korean barbecue restaurant",
+            form="gallery",
+        )
+        self.assertEqual(diagnosis["reason"], "no-sector")
 
 
 if __name__ == "__main__":

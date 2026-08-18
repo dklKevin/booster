@@ -30,6 +30,9 @@ Refs teach how to think, never what to build.
 - Strong work can make the product interaction itself the proof, as OpenAI does with a functional composer and Airbnb does with a task-shaped discovery control.
 - Excellence can also earn authority through disciplined spectacle, including Apple's single-idea image stages, DeepMind's grid-aligned scientific media, Netflix's cinematic careers narrative, and NVIDIA's action-focused state color.
 - Brand color is most credible when it signals action, selection, data, or live state, not when it floods the interface.
+- **Operational surface:** keep the primary product job (search, shop, compose, read, apply) reachable in the first viewport, then support, account, privacy, and policy pages as real destinations. Airbnb shapes discovery as a task; OpenAI puts a working composer on the marketing surface.
+- **Operational consistency:** product names, pricing, and policy claims must match the shipped product and the legal pages. Headline statistics without a named source are not proof.
+- **Photography:** make the product image the layout, as Apple does with one idea per stage. Soft-grey responsibility cards and stock campuses are decoration.
 
 ## Range map
 

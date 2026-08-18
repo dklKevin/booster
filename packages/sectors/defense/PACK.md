@@ -30,6 +30,9 @@ Institutional navy, signal orange or blue rectangles, and condensed uppercase la
 - Excellence proves that authority can come from rigorous grids, narrow reading measures, disciplined type scale, and sparse state color rather than navy bands, card density, or faux-tactical ornament.
 - Cinematic hardware imagery remains credible when paired with quiet evidence surfaces, exact content limits, and a small number of repeatable motion or control gestures.
 - High-energy colors such as Anduril `#dff140`, Helsing `#F36702`, Saronic `#acff24`, and Shield AI `#FF6343` work as scarce signals for state, telemetry, focus, or hover rather than broad decoration.
+- **Operational surface:** keep named systems, dated programme claims, production or contract facts, careers, and governance or supplier routes on the owned site. Surveyed excellence pages treat those as evidence surfaces, not footer residue.
+- **Operational consistency:** programme names, dates, and capacity figures must agree across homepage, product, and investor pages. Century-scale history and stock quotes cannot replace a current system page.
+- **Photography:** caption specific hardware, factories, or telemetry. Interchangeable aircraft, ships, and patriotic footage under a dark gradient is the mode.
 
 ## Range map
 

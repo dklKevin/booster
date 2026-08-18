@@ -1,7 +1,7 @@
 # Gallery package
 
 For imagery-first pages where the interface recedes: moodboards, photo-heavy pages, visual collections.
-Load with `~/.claude/DESIGN.md` plus files from `refs/` chosen for the brief. Never load the whole refs folder.
+Load with the installed DESIGN.md plus files from `refs/` chosen for the brief. Never load the whole refs folder.
 Refs teach how to think, never what to build.
 
 ## Range map

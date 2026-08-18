@@ -28,6 +28,9 @@ Load it with the form package matching the page's job, plus two or three referen
 - Brand need not flood the canvas: Caterpillar confines `#ffcd11` to a 40px × 5px bar and states, while IBM, Coca-Cola, Deere, Nike, and Target rely on neutrals.
 - Credibility rises when the primary job leads, as Delta's booking workflow and Deere's dealer, search, compare, offer, and breadcrumb paths prove.
 - Responsive discipline signals control through Deere's breakpoint-specific crops, IBM's 4/8/16-column grid, and Coca-Cola's tokenized 56px-to-120px module rhythm.
+- **Operational surface:** lead with the company's actual job: Delta's booking workflow, Deere's dealer, search, compare, and offer paths, or a current report and policy index. Purpose slogans cannot replace those tasks.
+- **Operational consistency:** tickers, product names, and policy links must stay current and attributed. Awards belong only when the source and distinction are named, as with P&G and J&J.
+- **Photography:** let product or campaign art carry one idea, then return to task UI. Full-bleed purpose films that never reach a booking, dealer, or shop path are a brochure.
 
 ## Range map
 

@@ -30,6 +30,9 @@ Refs teach how to think, never what to build.
 - Excellence can be warm, editorial, or playful without losing rigor: Fly.io and Railway use serif-led infrastructure narratives, while Val Town connects friendly world-building to a concrete terminal.
 - A product metaphor earns trust only when it governs behavior and structure, as in PostHog's application frame, Railway's deployment journey, Zed's ruled editor scaffold, or Raycast's accurate command windows.
 - Restraint signals confidence: quiet semantic surface ladders, one purposeful accent family, readable prose measures, and reduced-motion handling outperform indiscriminate glow, color, and animation.
+- **Operational surface:** keep install or quickstart, current docs, pricing, status, changelog, and the repository or download on the owned site, close to the claim. Bun, Vite, and Warp treat a working command or terminal as proof.
+- **Operational consistency:** the marketing install command, version badge, and docs must describe the same product. A glowing IDE facsimile that does not match shipped UI is costume.
+- **Photography:** use accurate editor, terminal, or dashboard states. Product-accurate command windows at Raycast and Zed outrank generic software chrome.
 
 ## Range map
 

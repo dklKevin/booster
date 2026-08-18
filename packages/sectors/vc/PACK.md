@@ -28,6 +28,9 @@ Refs teach how to think, never what to build.
 - Portfolio proof should explain judgment: Contrary makes it architectural, First Round ties companies to founding insights, Lux embeds frontier technology in its thesis, and USV places current writing beside stated beliefs.
 - Motion earns credibility only when it explains the thesis or navigation, as at Lux, Pace, Seven Seven Six, and Founders Fund; an autoplay reel or long scroll without that semantic job is decoration.
 - Operational clarity matters after expression: consistent directories, practical grids and filters, readable measures, reduced-motion handling, and coherent token roles prove that a distinctive homepage can still support diligence.
+- **Operational surface:** keep the thesis, a portfolio with company links, team, writing, and a contact path on the owned site. USV gives the thesis a column; First Round ties each company to a founding insight; Contrary puts portfolio in the same grid as research.
+- **Operational consistency:** portfolio names and URLs on the homepage must match the companies directory. A logo wall that does not resolve to a company page is decoration.
+- **Photography:** founder portraits, company stories, and thesis media with a job. Generic skyline decks and unlinked logo gardens are the mode.
 
 ## Range map
 

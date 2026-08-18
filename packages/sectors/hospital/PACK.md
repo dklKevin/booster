@@ -34,6 +34,9 @@ Refs teach how to think, never what to build.
 - This audience reads in light; a dark theme is not part of the patient-facing register.
 - A real practice site is mostly operational surface, and patients recognize its absence instantly: patient portal or records access, new-patient forms and what to bring, patient education for the conditions treated, insurance and billing detail including self-pay, languages and accessibility, privacy notices, and plain after-hours and emergency guidance. A site with only the photogenic pages reads as a brochure mockup, not a practice.
 - Density is part of clinical credibility: real clinic pages carry more information per viewport than editorial pages, and patients trust the site that answers the third and fourth question, not just the first.
+- **Operational surface:** keep portal or records access, new-patient intake, insurance and self-pay, condition education, after-hours guidance, and named locations on the owned site, as Zocdoc leads with specialty, location, and insurance search and One Medical keeps care taxonomy actionable.
+- **Operational consistency:** one current source for hours, locations, accepted insurance, and booking destinations; a brochure homepage that hands off to a contradictory portal fails the visit.
+- **Photography:** show the people, rooms, and equipment that belong to this practice. Escape the caregiver-gradient hero, never photography itself.
 
 ## Range map
 

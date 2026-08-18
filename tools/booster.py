@@ -23,7 +23,7 @@ from typing import Any, Iterable, Sequence
 
 VERSION = "0.1.0"
 SCHEMA_VERSION = 1
-TOOL_RELEASE_SHA256 = "158a84be7a34084c9176514b6f28e8cb7d98623ff0ca6574c769ac5b23c5110d"
+TOOL_RELEASE_SHA256 = "e49d894c002b53a00dcb813f878ba855d6fccd775394927f8d4c7ebc619333e5"
 DEFAULT_INDEX_PATH = Path("evidence/reference-index.json")
 DEFAULT_BANS_PATH = Path("evidence/bans.json")
 DEFAULT_OBSERVATIONS_PATH = Path("evidence/observations.json")
@@ -34,7 +34,35 @@ BAN_RE = re.compile(r"^- \*\*(B\d{3})\*\*\s+(.+)$")
 EVIDENCE_RE = re.compile(r"\s+\(Observed failure:\s*(.+)\)\s*$")
 VALID_SOURCE_STATUSES = {"full-css", "wayback", "legacy-unstructured"}
 VALID_BAN_STATUSES = {"legacy-unstructured", "structured"}
+MIN_RELEVANCE_SCORE = 3.0
+UNCOVERED_INDUSTRY_TOKENS = {
+    "bakery": "food/hospitality",
+    "barbeque": "food/hospitality",
+    "barbecue": "food/hospitality",
+    "bbq": "food/hospitality",
+    "bistro": "food/hospitality",
+    "cafe": "food/hospitality",
+    "cafes": "food/hospitality",
+    "church": "religion",
+    "college": "education",
+    "diner": "food/hospitality",
+    "eatery": "food/hospitality",
+    "government": "civic",
+    "gym": "sports",
+    "hotel": "hospitality",
+    "hotels": "hospitality",
+    "motel": "hospitality",
+    "mosque": "religion",
+    "restaurant": "food/hospitality",
+    "restaurants": "food/hospitality",
+    "school": "education",
+    "schools": "education",
+    "synagogue": "religion",
+    "temple": "religion",
+    "university": "education",
+}
 CANONICAL_HOME = "~/.claude"
+VALID_LIBRARY_HOMES = ("~/.claude", "~/.grok")
 MANAGED_LIBRARY_PATHS = [
     "DESIGN.md",
     "design/packages",
@@ -105,13 +133,25 @@ def uses_current_schema(value: Any) -> bool:
     )
 
 
+def is_valid_library_home(value: Any) -> bool:
+    return (
+        isinstance(value, str)
+        and value.strip() != ""
+        and (
+            value in VALID_LIBRARY_HOMES
+            or value.startswith("~/")
+            or value.startswith("/")
+        )
+    )
+
+
 def is_booster_ownership_marker(value: Any) -> bool:
     """Recognize a compatible marker without freezing release-specific inventory."""
 
     return (
         uses_current_schema(value)
         and value.get("name") == "booster"
-        and value.get("canonical_home") == CANONICAL_HOME
+        and is_valid_library_home(value.get("canonical_home"))
         and value.get("managed_library_paths") == MANAGED_LIBRARY_PATHS
     )
 
@@ -381,6 +421,27 @@ def tokenize(value: str | None) -> set[str]:
     return set(TOKEN_RE.findall(value.lower()))
 
 
+def uncovered_industry(query: str) -> str | None:
+    """Return an uncovered industry label when the brief names one.
+
+    Diagnosis only. Never used to retrieve or rewrite a shortlist.
+    """
+
+    labels = {
+        UNCOVERED_INDUSTRY_TOKENS[token]
+        for token in tokenize(query)
+        if token in UNCOVERED_INDUSTRY_TOKENS
+    }
+    if not labels:
+        return None
+    return ",".join(sorted(labels))
+
+
+def catalog_package_names(root: Path) -> tuple[list[str], list[str]]:
+    forms, sectors = package_paths(root)
+    return [path.parent.name for path in forms], [path.parent.name for path in sectors]
+
+
 def _jaccard(left: set[str], right: set[str]) -> float:
     if not left and not right:
         return 1.0
@@ -426,11 +487,14 @@ def search_references(
     form: str | None = None,
     sector: str | None = None,
     limit: int = 4,
+    min_score: float = MIN_RELEVANCE_SCORE,
 ) -> list[dict[str, Any]]:
     """Rank lexical relevance, then use MMR-style pole and package diversity."""
 
     if limit < 1:
         raise BoosterError("--limit must be at least 1")
+    if min_score < 0:
+        raise BoosterError("min_score must be at least 0")
     index = build_reference_index(root)
     entries = [entry for entry in index["entries"] if entry["kind"] == "ref"]
     form_names = {entry["package"] for entry in entries if entry["axis"] == "form"}
@@ -443,6 +507,8 @@ def search_references(
         raise BoosterError(
             f"unknown sector {sector!r}; available sectors: {', '.join(sorted(sector_names))}"
         )
+    if uncovered_industry(query) and not sector:
+        return []
 
     if form or sector:
         entries = [
@@ -456,7 +522,7 @@ def search_references(
     for entry in entries:
         candidate = dict(entry)
         candidate["score"] = _relevance(root, entry, query)
-        if candidate["score"] <= 0:
+        if candidate["score"] < min_score:
             continue
         candidate["_pole_tokens"] = tokenize(str(entry.get("pole") or ""))
         scored.append(candidate)
@@ -518,6 +584,58 @@ def search_references(
             }
         )
     return result
+
+
+def diagnose_empty_search(
+    root: Path,
+    query: str,
+    *,
+    form: str | None = None,
+    sector: str | None = None,
+    min_score: float = MIN_RELEVANCE_SCORE,
+) -> dict[str, Any]:
+    """Explain a zero-hit search without suggesting the query be broadened."""
+
+    forms, sectors = catalog_package_names(root)
+    uncovered = uncovered_industry(query)
+    diagnosis: dict[str, Any] = {
+        "reason": "no-lexical-hit",
+        "query": query,
+        "form": form,
+        "sector": sector,
+        "available_forms": forms,
+        "available_sectors": sectors,
+    }
+    if uncovered:
+        diagnosis["uncovered"] = uncovered
+    if uncovered and not sector:
+        diagnosis["reason"] = "no-sector"
+        return diagnosis
+    if form or sector:
+        unfiltered = search_references(root, query, min_score=min_score)
+        if unfiltered:
+            diagnosis["reason"] = "filter-too-narrow"
+            return diagnosis
+    return diagnosis
+
+
+def empty_search_help(diagnosis: dict[str, Any]) -> list[str]:
+    reason = str(diagnosis.get("reason") or "no-lexical-hit")
+    if reason == "no-sector":
+        label = str(diagnosis.get("uncovered") or "an uncovered industry")
+        return [
+            f"This brief names {label}, which has no sector pack. Set sector to none.",
+            "Open a form PACK.md range map. Do not search the catalog. Never retry unfiltered.",
+        ]
+    if reason == "filter-too-narrow":
+        return [
+            "Hits exist outside the current --form/--sector filter. Add the matching sector or open that PACK.md range map.",
+            "Never retry unfiltered. Never broaden the query to force a hit.",
+        ]
+    return [
+        "No ref in the current filter contains these terms. Open the chosen PACK.md range map.",
+        "Never retry unfiltered. Never broaden the query to force a hit.",
+    ]
 
 
 def parse_design_bans(path: Path) -> list[dict[str, Any]]:
@@ -1028,10 +1146,13 @@ def _validate_skills(root: Path, issues: list[dict[str, str]]) -> None:
                     "existing visual language",
                     "page's job",
                     "Never force a sector fit",
+                    "Never retry unfiltered",
                     "open no more than 2-3 ref files total",
                     "## Booster recommendation",
                     "compact ASCII wireframe",
                     "Counterfactual",
+                    "one chosen direction",
+                    "Screenshot mobile and laptop",
                 ],
             ),
             "booster-questions": (
@@ -1042,6 +1163,7 @@ def _validate_skills(root: Path, issues: list[dict[str, str]]) -> None:
                     "Ask at most 5",
                     "~/.agents/skills/booster/SKILL.md",
                     "~/.claude/skills/booster/SKILL.md",
+                    "~/.grok/skills/booster/SKILL.md",
                 ],
             ),
             "booster-audit": (
@@ -1355,6 +1477,16 @@ def _validate_pack_contracts(root: Path, issues: list[dict[str, str]]) -> None:
                 "## Range map",
             ],
         )
+        pack_text = read_text(path)
+        if "**Operational surface:**" not in pack_text:
+            issues.append(
+                issue(
+                    "error",
+                    "sector-operational-surface",
+                    relative,
+                    "Register must include an Operational surface bullet distilled from this sector's refs",
+                )
+            )
 
 
 def _validate_range_maps(root: Path, issues: list[dict[str, str]]) -> None:
@@ -2708,17 +2840,40 @@ def main(argv: Sequence[str] | None = None) -> int:
                 sector=args.sector,
                 limit=args.limit,
             )
+            if not results:
+                diagnosis = diagnose_empty_search(
+                    root,
+                    args.query,
+                    form=args.form,
+                    sector=args.sector,
+                )
+                help_text = empty_search_help(diagnosis)
+                if args.json:
+                    emit_json(
+                        {
+                            "count": 0,
+                            "results": [],
+                            "empty": diagnosis,
+                            "help": help_text,
+                        }
+                    )
+                else:
+                    print(toon_table("refs", [], ["id", "path", "pole", "score"]))
+                    print("empty:")
+                    print(f"  reason: {toon_scalar(diagnosis['reason'])}")
+                    print(f"  query: {toon_scalar(diagnosis['query'])}")
+                    print(f"  form: {toon_scalar(diagnosis['form'])}")
+                    print(f"  sector: {toon_scalar(diagnosis['sector'])}")
+                    if diagnosis.get("uncovered"):
+                        print(f"  uncovered: {toon_scalar(diagnosis['uncovered'])}")
+                    print(toon_list("available_forms", diagnosis["available_forms"]))
+                    print(toon_list("available_sectors", diagnosis["available_sectors"]))
+                    print(toon_list("help", help_text))
+                return 0
             if args.json:
                 emit_json({"count": len(results), "results": results})
             else:
                 print(toon_table("refs", results, ["id", "path", "pole", "score"]))
-                if not results:
-                    print(
-                        toon_list(
-                            "help",
-                            [f'Run `{executable_command()} search "<broader brief>" --limit {args.limit}`'],
-                        )
-                    )
             return 0
 
         if args.command == "validate":

@@ -1,7 +1,7 @@
 # Showcase package
 
 For physical-object showcase pages: cars, hardware, instruments, anything that exists in metal and must be desired.
-Load with `~/.claude/DESIGN.md` plus 2-3 files from `refs/` chosen for the brief. Never load the whole refs folder.
+Load with the installed DESIGN.md plus 2-3 files from `refs/` chosen for the brief. Never load the whole refs folder.
 Refs teach how to think, never what to build.
 
 ## Range map

@@ -28,6 +28,9 @@ Refs teach how to think, never what to build.
 - The audience expects precise, composed, technically literate language, and Chainguard, Cloudflare, and Tailscale show that authority can come from grids, rules, mono labels, constrained copy, and calm spacing rather than ominous imagery.
 - Analyst recognition can support a decision, but it should not substitute for product evidence; the mode sites repeatedly foreground Gartner and Forrester, while the excellence sites resolve claims into dashboards, package metadata, diagrams, and interactions.
 - Trust does not require a black canvas or alarm color: warm `#E4E3E0`, `#f9f7f6`, white `#FFFFFF`, hairline borders, and restrained violet or blue actions can make security feel engineered, legible, and approachable.
+- **Operational surface:** keep an inspectable product or threat model, docs, pricing or demo, and security or compliance pages on the owned site. 1Password, Socket, Tailscale, and Material Security resolve claims into dashboards, graphs, and attack paths.
+- **Operational consistency:** analyst badges and daily-threat counters must point at a named artifact the visitor can open. A Gartner card with no product underneath is the mode.
+- **Photography:** use the product, the graph, or the package metadata. Glowing shields, network globes, and executive portraits over dark gradients are costume.
 
 ## Range map
 
