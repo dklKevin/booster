@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install shell dependencies
+        run: sudo apt-get update && sudo apt-get install -y zsh rsync
       - name: Validate shell syntax
         run: zsh -n install.sh sync.sh tests/test_install.zsh
       - name: Validate library and run tests
