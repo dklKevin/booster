@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "industries": [
+    {
+      "id": "civic",
+      "label": "government and civic services",
+      "tokens": ["government"]
+    },
+    {
+      "id": "education",
+      "label": "schools and universities",
+      "tokens": ["college", "school", "schools", "university"]
+    },
+    {
+      "id": "food/hospitality",
+      "label": "restaurants, cafes, and barbecue",
+      "tokens": [
+        "bakery",
+        "barbeque",
+        "barbecue",
+        "bbq",
+        "bistro",
+        "cafe",
+        "cafes",
+        "diner",
+        "eatery",
+        "restaurant",
+        "restaurants"
+      ]
+    },
+    {
+      "id": "hospitality",
+      "label": "hotels and lodging",
+      "tokens": ["hotel", "hotels", "motel"]
+    },
+    {
+      "id": "religion",
+      "label": "places of worship",
+      "tokens": ["church", "mosque", "synagogue", "temple"]
+    },
+    {
+      "id": "sports",
+      "label": "gyms and sports venues",
+      "tokens": ["gym"]
+    }
+  ]
+}

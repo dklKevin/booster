@@ -21,6 +21,7 @@
     "evidence/bans.json",
     "evidence/observations.json",
     "evidence/reference-index.json",
+    "evidence/uncovered.json",
     "skills/booster/SKILL.md",
     "skills/booster/booster-skill.json",
     "skills/booster/agents/openai.yaml",

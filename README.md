@@ -89,8 +89,9 @@ The default user experience is a one- or two-shot website build. Routing, search
 
 ## The ban list, briefly
 
-New rules enter only when a failure is observed and logged, never speculatively.
-A motif becomes a candidate after repeat sightings. The structured registry distinguishes complete evidence from entries that predate the ledger:
+B001 through B010 are named mode tells. They have no observation rows.
+B011 through B018 carry dated notes in DESIGN.md from August 2026 builds. Those notes predate the observation ledger, so they stay `legacy-unstructured`.
+`evidence/observations.json` starts empty on purpose. New rejections go there. Missing history is not reconstructed.
 
 > **B011** Em dashes in copy. *Appeared throughout the recorded A/B runs before the ban.*
 >
@@ -100,7 +101,7 @@ A motif becomes a candidate after repeat sightings. The structured registry dist
 >
 > **B018** Aphorism headlines ("Forty tanks. Plenty to ask."). *When a plain label does the job, the plain label wins: "Contact" beats "Tell us what the tank needs to do."*
 
-The full list and stable IDs live in [DESIGN.md](DESIGN.md). Evidence status lives in `evidence/bans.json`; missing historical details stay marked `legacy-unstructured` instead of being reconstructed as fact.
+The full list and stable IDs live in [DESIGN.md](DESIGN.md). Evidence status lives in `evidence/bans.json`.
 
 ## Rules of growth
 
@@ -163,5 +164,5 @@ zsh tests/test_install.zsh
 [MIT](LICENSE) © 2026 Dongkyu Lee
 
 <p align="center">
-  <sub>Grown one observed failure at a time.</sub>
+  <sub>Named bans. Empty ledger until new rejections are logged.</sub>
 </p>

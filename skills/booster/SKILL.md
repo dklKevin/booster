@@ -66,6 +66,7 @@ Pick by the page's job, not its industry.
 
 List `<library-root>/packages/sectors/` for the current list; match the brief's industry.
 Many briefs have no sector: that is a normal outcome, not a failure. Never force a sector fit.
+If the brief names an uncovered industry in DESIGN.md or `evidence/uncovered.json` (civic, education, food/hospitality, hospitality, religion, sports), set sector to none. Do not search. Do not force a nearby pack.
 
 ## Step 4: Choose refs
 

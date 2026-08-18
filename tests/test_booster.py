@@ -48,6 +48,7 @@ class BoosterFixture:
 
 - Read one form and one sector package, then choose only brief-specific evidence.
 - Keep the context narrow at 2-3 refs total.
+- Uncovered industries: civic, education, food/hospitality, hospitality, religion, sports.
 
 ## Evidence lifecycle
 
@@ -314,6 +315,48 @@ status: full-css
         observations = {"schema_version": 1, "observations": []}
         self.write("evidence/bans.json", json.dumps(bans, indent=2) + "\n")
         self.write("evidence/observations.json", json.dumps(observations, indent=2) + "\n")
+        self.write(
+            "evidence/uncovered.json",
+            json.dumps(
+                {
+                    "schema_version": 1,
+                    "industries": [
+                        {
+                            "id": "food/hospitality",
+                            "label": "restaurants",
+                            "tokens": ["barbecue", "restaurant", "restaurants"],
+                        },
+                        {
+                            "id": "civic",
+                            "label": "government",
+                            "tokens": ["government"],
+                        },
+                        {
+                            "id": "education",
+                            "label": "schools",
+                            "tokens": ["school"],
+                        },
+                        {
+                            "id": "hospitality",
+                            "label": "hotels",
+                            "tokens": ["hotel"],
+                        },
+                        {
+                            "id": "religion",
+                            "label": "worship",
+                            "tokens": ["church"],
+                        },
+                        {
+                            "id": "sports",
+                            "label": "gyms",
+                            "tokens": ["gym"],
+                        },
+                    ],
+                },
+                indent=2,
+            )
+            + "\n",
+        )
         self.write(
             "evidence/reference-index.json",
             json.dumps(booster.build_reference_index(self.root), indent=2) + "\n",

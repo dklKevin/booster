@@ -23,10 +23,11 @@ from typing import Any, Iterable, Sequence
 
 VERSION = "0.1.0"
 SCHEMA_VERSION = 1
-TOOL_RELEASE_SHA256 = "e49d894c002b53a00dcb813f878ba855d6fccd775394927f8d4c7ebc619333e5"
+TOOL_RELEASE_SHA256 = "43e83d62d3a400d994d45b4814513614ae9c98bdf488f7e4431fd923b7f65129"
 DEFAULT_INDEX_PATH = Path("evidence/reference-index.json")
 DEFAULT_BANS_PATH = Path("evidence/bans.json")
 DEFAULT_OBSERVATIONS_PATH = Path("evidence/observations.json")
+DEFAULT_UNCOVERED_PATH = Path("evidence/uncovered.json")
 INSTALL_RECEIPT_PATH = Path(".booster-installed.json")
 DATE_RE = re.compile(r"\b(20\d{2}-\d{2}-\d{2})\b")
 TOKEN_RE = re.compile(r"[^\W_]+", flags=re.UNICODE)
@@ -35,32 +36,6 @@ EVIDENCE_RE = re.compile(r"\s+\(Observed failure:\s*(.+)\)\s*$")
 VALID_SOURCE_STATUSES = {"full-css", "wayback", "legacy-unstructured"}
 VALID_BAN_STATUSES = {"legacy-unstructured", "structured"}
 MIN_RELEVANCE_SCORE = 3.0
-UNCOVERED_INDUSTRY_TOKENS = {
-    "bakery": "food/hospitality",
-    "barbeque": "food/hospitality",
-    "barbecue": "food/hospitality",
-    "bbq": "food/hospitality",
-    "bistro": "food/hospitality",
-    "cafe": "food/hospitality",
-    "cafes": "food/hospitality",
-    "church": "religion",
-    "college": "education",
-    "diner": "food/hospitality",
-    "eatery": "food/hospitality",
-    "government": "civic",
-    "gym": "sports",
-    "hotel": "hospitality",
-    "hotels": "hospitality",
-    "motel": "hospitality",
-    "mosque": "religion",
-    "restaurant": "food/hospitality",
-    "restaurants": "food/hospitality",
-    "school": "education",
-    "schools": "education",
-    "synagogue": "religion",
-    "temple": "religion",
-    "university": "education",
-}
 CANONICAL_HOME = "~/.claude"
 VALID_LIBRARY_HOMES = ("~/.claude", "~/.grok")
 MANAGED_LIBRARY_PATHS = [
@@ -78,6 +53,7 @@ REQUIRED_MANAGED_PATHS = [
     "evidence/bans.json",
     "evidence/observations.json",
     "evidence/reference-index.json",
+    "evidence/uncovered.json",
     "skills/booster/SKILL.md",
     "skills/booster/booster-skill.json",
     "skills/booster/agents/openai.yaml",
@@ -421,16 +397,47 @@ def tokenize(value: str | None) -> set[str]:
     return set(TOKEN_RE.findall(value.lower()))
 
 
-def uncovered_industry(query: str) -> str | None:
+def load_uncovered_tokens(root: Path) -> dict[str, str]:
+    """Map query tokens to uncovered industry ids from the evidence registry."""
+
+    path = root / DEFAULT_UNCOVERED_PATH
+    data = load_json(path)
+    if not uses_current_schema(data):
+        raise BoosterError(f"{path} does not use uncovered schema version {SCHEMA_VERSION}")
+    industries = data.get("industries")
+    if not isinstance(industries, list):
+        raise BoosterError(f"{path} field industries must be an array")
+    tokens: dict[str, str] = {}
+    for industry in industries:
+        if not isinstance(industry, dict):
+            raise BoosterError(f"{path} industries must contain objects")
+        industry_id = industry.get("id")
+        token_list = industry.get("tokens")
+        if not isinstance(industry_id, str) or not industry_id.strip():
+            raise BoosterError(f"{path} industry id is required")
+        if not isinstance(token_list, list) or not token_list:
+            raise BoosterError(f"{path} industry {industry_id!r} needs tokens")
+        for token in token_list:
+            if not isinstance(token, str) or not token.strip():
+                raise BoosterError(f"{path} industry {industry_id!r} has an empty token")
+            lowered = token.strip().lower()
+            if lowered in tokens and tokens[lowered] != industry_id:
+                raise BoosterError(f"{path} token {lowered!r} maps to more than one industry")
+            tokens[lowered] = industry_id
+    return tokens
+
+
+def uncovered_industry(query: str, root: Path) -> str | None:
     """Return an uncovered industry label when the brief names one.
 
     Diagnosis only. Never used to retrieve or rewrite a shortlist.
     """
 
+    token_map = load_uncovered_tokens(root)
     labels = {
-        UNCOVERED_INDUSTRY_TOKENS[token]
+        token_map[token]
         for token in tokenize(query)
-        if token in UNCOVERED_INDUSTRY_TOKENS
+        if token in token_map
     }
     if not labels:
         return None
@@ -507,7 +514,7 @@ def search_references(
         raise BoosterError(
             f"unknown sector {sector!r}; available sectors: {', '.join(sorted(sector_names))}"
         )
-    if uncovered_industry(query) and not sector:
+    if uncovered_industry(query, root) and not sector:
         return []
 
     if form or sector:
@@ -597,7 +604,7 @@ def diagnose_empty_search(
     """Explain a zero-hit search without suggesting the query be broadened."""
 
     forms, sectors = catalog_package_names(root)
-    uncovered = uncovered_industry(query)
+    uncovered = uncovered_industry(query, root)
     diagnosis: dict[str, Any] = {
         "reason": "no-lexical-hit",
         "query": query,
@@ -1146,6 +1153,7 @@ def _validate_skills(root: Path, issues: list[dict[str, str]]) -> None:
                     "existing visual language",
                     "page's job",
                     "Never force a sector fit",
+                    "uncovered industry",
                     "Never retry unfiltered",
                     "open no more than 2-3 ref files total",
                     "## Booster recommendation",
@@ -1760,6 +1768,37 @@ def _validate_observations(root: Path, issues: list[dict[str, str]]) -> None:
             seen.add(observation_id)
 
 
+def _validate_uncovered(root: Path, issues: list[dict[str, str]]) -> None:
+    path = root / DEFAULT_UNCOVERED_PATH
+    rel = relative_path(path, root)
+    try:
+        token_map = load_uncovered_tokens(root)
+        data = load_json(path)
+    except BoosterError as exc:
+        issues.append(issue("error", "uncovered-json", rel, str(exc)))
+        return
+    industries = data.get("industries")
+    if not isinstance(industries, list) or not industries:
+        issues.append(issue("error", "uncovered-schema", rel, "industries must be a nonempty array"))
+        return
+    design = read_text(booster_design_path(root))
+    for industry in industries:
+        if not isinstance(industry, dict):
+            continue
+        industry_id = industry.get("id")
+        if isinstance(industry_id, str) and industry_id not in design:
+            issues.append(
+                issue(
+                    "error",
+                    "uncovered-docs",
+                    rel,
+                    f"DESIGN.md must name uncovered industry {industry_id!r}",
+                )
+            )
+    if not token_map:
+        issues.append(issue("error", "uncovered-empty", rel, "uncovered token map is empty"))
+
+
 def _validate_generated_indexes(root: Path, issues: list[dict[str, str]]) -> None:
     evidence = root / "evidence"
     if not evidence.is_dir():
@@ -2055,6 +2094,7 @@ def validate_repository(root: Path) -> dict[str, Any]:
     _validate_range_maps(root, issues)
     _validate_bans(root, issues)
     _validate_observations(root, issues)
+    _validate_uncovered(root, issues)
     _validate_generated_indexes(root, issues)
     return _validation_result(root, issues)
 
@@ -2082,6 +2122,7 @@ def validate_installed_library(root: Path) -> dict[str, Any]:
         root / "tools/booster.py",
         root / DEFAULT_BANS_PATH,
         root / DEFAULT_OBSERVATIONS_PATH,
+        root / DEFAULT_UNCOVERED_PATH,
         root / DEFAULT_INDEX_PATH,
     ]
     for path in required_files:
@@ -2158,6 +2199,7 @@ def validate_installed_library(root: Path) -> dict[str, Any]:
     _validate_range_maps(root, issues)
     _validate_bans(root, issues)
     _validate_observations(root, issues)
+    _validate_uncovered(root, issues)
     _validate_generated_indexes(root, issues)
     return _validation_result(root, issues)
 
